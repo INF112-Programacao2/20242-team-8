@@ -16,7 +16,7 @@
 
     public:
         // Construtor que recebe o caminho do banco de dados
-        DatabaseConnection(const std::string& path);
+        explicit DatabaseConnection(const std::string& path);
 
         // Método para estabelecer conexão com o banco de dados
         bool connect();
