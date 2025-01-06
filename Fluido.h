@@ -4,10 +4,14 @@
 
 #ifndef FLUIDO_H
 #define FLUIDO_H
+#include "TipoProduto.h"
 
 
-
-class Fluido {
+class Fluido: public TipoProduto{
+private:
+    double volume_minimo;
+    char unidade;
+public:
 
 };
 

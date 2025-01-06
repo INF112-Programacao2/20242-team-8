@@ -8,6 +8,9 @@
 
 
 class Peca {
+private:
+    int quantidade_minima;
+public:
 
 };
 
