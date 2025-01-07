@@ -11,7 +11,11 @@ class Marca {
 private:
     std::string nome;
 public:
-    void obterDados();
+    explicit Marca(std::string _nome);
+    void obterDados(); //faz função de get_marca
+    std::string set_nome(std::string txt);
+    void get_nome();
+    ~Marca();
 };
 
 

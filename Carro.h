@@ -12,7 +12,11 @@ private:
     TipoCarro tipoCarro;
     std::string placa;
 public:
-    void obterDados();
+    Carro(std::string _nome, std::string _modelo, std::string _funcao, std::string placa);
+    void obterDados(); //faz papel de get_carro (fazer chamada dos outros obterdados() aqui)
+    std::string set_placa(std::string txr);
+    void get_placa();
+    ~Carro();
 };
 
 

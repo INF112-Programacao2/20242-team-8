@@ -4,14 +4,17 @@
 
 #ifndef PECA_H
 #define PECA_H
+#include "TipoProduto.h"
 
 
-
-class Peca {
+class Peca:public TipoProduto{
 private:
     int quantidade_minima;
 public:
-
+    Peca(std::string _nome, int _quantidade_minima);
+    int set_quantidade_minima();
+    void get_quantidade_minima();
+    ~Peca();
 };
 
 

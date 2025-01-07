@@ -10,7 +10,11 @@ class TipoProduto {
 private:
     std::string nome;
 public:
+    explicit TipoProduto(std::string _nome);
     void obterDados();
+    std::string set_nome(std::string txt);
+    void get_nome();
+    ~TipoProduto();
 };
 
 
