@@ -14,8 +14,8 @@ private:
 public:
     Carro(std::string _nome, std::string _modelo, std::string _funcao, std::string placa);
     void obterDados(); //faz papel de get_carro (fazer chamada dos outros obterdados() aqui)
-    std::string set_placa(std::string txr);
-    void get_placa();
+    void set_placa(std::string txr);
+    std::string get_placa();
     ~Carro();
 };
 

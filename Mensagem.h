@@ -12,7 +12,11 @@ private:
     Manutencao manutencao_;
     std::string conteudo;
 public:
+    Mensagem();
     void exibirMensagem();
+    void set_conteudo(std::string txt);
+    std::string get_conteudo();
+    ~Mensagem();
 };
 
 

@@ -13,10 +13,10 @@ private:
     char unidade;
 public:
     Fluido(std::string _nome, double _volume_minimo, char _unidade);
-    double set_volume_minimo(double num);
-    char set_unidade(char c);
-    void get_volume_minimo();
-    void get_unidade();
+    void set_volume_minimo(double num);
+    void set_unidade(char c);
+    double get_volume_minimo();
+    char get_unidade();
     ~Fluido();
 };
 

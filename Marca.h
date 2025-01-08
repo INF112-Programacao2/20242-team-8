@@ -13,8 +13,8 @@ private:
 public:
     explicit Marca(std::string _nome);
     void obterDados(); //faz função de get_marca
-    std::string set_nome(std::string txt);
-    void get_nome();
+    void set_nome(std::string txt);
+    std::string get_nome();
     ~Marca();
 };
 

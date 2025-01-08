@@ -15,10 +15,10 @@ private:
 public:
     TipoCarro(std::string _nome, std::string _modelo, std::string _funcao);
     void obterDados(); //faz função do get_TipoCarro
-    std::string set_modelo(std::string txt);
-    std::string set_funcao(std::string txt);
-    void get_modelo();
-    void get_funcao();
+    void set_modelo(std::string txt);
+    void set_funcao(std::string txt);
+    std::string get_modelo();
+    std::string get_funcao();
     ~TipoCarro();
 };
 

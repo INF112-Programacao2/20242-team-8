@@ -11,9 +11,9 @@ private:
     std::string nome;
 public:
     explicit TipoProduto(std::string _nome);
-    void obterDados();
-    std::string set_nome(std::string txt);
-    void get_nome();
+    void obterDados(); //get Tipo_Produto
+    void set_nome(std::string txt);
+    std::string get_nome();
     ~TipoProduto();
 };
 

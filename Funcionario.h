@@ -14,10 +14,11 @@ private:
 public:
     Funcionario(std::string _nome, std::string ID_funcionario);
     void exibirDados(); //get_funcionario
-    std::string set_nome(std::string _nome);
-    std::string set_ID_Funcionario(std::string ID);
-    void get_nome();
-    void get_ID_funcionario();
+    void set_nome(std::string _nome);
+    void set_ID_Funcionario(std::string ID);
+    std::string get_nome();
+    std::string get_ID_funcionario();
+    ~Funcionario();
 };
 
 

@@ -17,8 +17,14 @@ private:
     TipoCarro * carrosCompativeis;
     std::string numero;
 public:
+    Produto(std::string _nome, float _minimo, int _quantidade, std::string nome_marca, std::string _numero); //o atributo carrosCompativeis será atribuido apenas após utilizarmos o método criaVetorCarros()
     void obterDados();
-    void alterarQuantidade();
+    void alterarQuantidade(int value); //set_quantidade
+    void set_numero(std::string num);
+    int get_quantidade();
+    std::string get_numero();
+    void criaVetorCarros();
+    ~Produto();
 };
 
 
