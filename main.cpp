@@ -1,6 +1,9 @@
 #include <iostream>
 #include "DatabaseConnection.h"
+#include "TextToVoice.h"
+
 int main() {
+    /*
     // Cria objeto de conexão com o banco
     DatabaseConnection db("DATABASE.sqlite");
     
@@ -26,6 +29,13 @@ int main() {
             std::cout << "Dados inseridos com sucesso!" << std::endl;
         }
     }
+    */
 
-    return 0;  // Retorna sucesso
+    // Define a mensagem que será lida em voz alta
+    const std::string message = "Olá, este é um exemplo usando a biblioteca eSpeak em português do Brasil.";
+
+    // Chama a função que converte o texto em fala
+    TextToVoice::speak(message);
+
+    return 0;
 }

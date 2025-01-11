@@ -27,4 +27,6 @@ add_executable(ProjetoFinal main.cpp
         Manutencao.cpp
         Manutencao.h
         Mensagem.cpp
-        Mensagem.h)
+        Mensagem.h
+        TextToVoice.cpp
+        TextToVoice.h)

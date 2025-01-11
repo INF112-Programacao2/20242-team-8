@@ -127,6 +127,12 @@ build CMakeFiles/ProjetoFinal.dir/Mensagem.cpp.o: CXX_COMPILER__ProjetoFinal_uns
   OBJECT_DIR = CMakeFiles/ProjetoFinal.dir
   OBJECT_FILE_DIR = CMakeFiles/ProjetoFinal.dir
 
+build CMakeFiles/ProjetoFinal.dir/TextToVoice.cpp.o: CXX_COMPILER__ProjetoFinal_unscanned_Debug /home/viniciuskl/CLionProjects/ProjetoFinal/TextToVoice.cpp || cmake_object_order_depends_target_ProjetoFinal
+  DEP_FILE = CMakeFiles/ProjetoFinal.dir/TextToVoice.cpp.o.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/ProjetoFinal.dir
+  OBJECT_FILE_DIR = CMakeFiles/ProjetoFinal.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ProjetoFinal
@@ -135,7 +141,7 @@ build CMakeFiles/ProjetoFinal.dir/Mensagem.cpp.o: CXX_COMPILER__ProjetoFinal_uns
 #############################################
 # Link the executable ProjetoFinal
 
-build ProjetoFinal: CXX_EXECUTABLE_LINKER__ProjetoFinal_Debug CMakeFiles/ProjetoFinal.dir/main.cpp.o CMakeFiles/ProjetoFinal.dir/DatabaseConnection.cpp.o CMakeFiles/ProjetoFinal.dir/TipoProduto.cpp.o CMakeFiles/ProjetoFinal.dir/Fluido.cpp.o CMakeFiles/ProjetoFinal.dir/Peca.cpp.o CMakeFiles/ProjetoFinal.dir/Produto.cpp.o CMakeFiles/ProjetoFinal.dir/Marca.cpp.o CMakeFiles/ProjetoFinal.dir/TipoCarro.cpp.o CMakeFiles/ProjetoFinal.dir/Carro.cpp.o CMakeFiles/ProjetoFinal.dir/Registro.cpp.o CMakeFiles/ProjetoFinal.dir/Funcionario.cpp.o CMakeFiles/ProjetoFinal.dir/Manutencao.cpp.o CMakeFiles/ProjetoFinal.dir/Mensagem.cpp.o
+build ProjetoFinal: CXX_EXECUTABLE_LINKER__ProjetoFinal_Debug CMakeFiles/ProjetoFinal.dir/main.cpp.o CMakeFiles/ProjetoFinal.dir/DatabaseConnection.cpp.o CMakeFiles/ProjetoFinal.dir/TipoProduto.cpp.o CMakeFiles/ProjetoFinal.dir/Fluido.cpp.o CMakeFiles/ProjetoFinal.dir/Peca.cpp.o CMakeFiles/ProjetoFinal.dir/Produto.cpp.o CMakeFiles/ProjetoFinal.dir/Marca.cpp.o CMakeFiles/ProjetoFinal.dir/TipoCarro.cpp.o CMakeFiles/ProjetoFinal.dir/Carro.cpp.o CMakeFiles/ProjetoFinal.dir/Registro.cpp.o CMakeFiles/ProjetoFinal.dir/Funcionario.cpp.o CMakeFiles/ProjetoFinal.dir/Manutencao.cpp.o CMakeFiles/ProjetoFinal.dir/Mensagem.cpp.o CMakeFiles/ProjetoFinal.dir/TextToVoice.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/ProjetoFinal.dir
   POST_BUILD = :
