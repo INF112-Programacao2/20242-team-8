@@ -1,6 +1,32 @@
+#include <chrono>
 #include <iostream>
+#include <thread>
+
 #include "DatabaseConnection.h"
+#include "KeyboardInput.h"
 #include "TextToVoice.h"
+
+
+void detectarTeclas() {
+    KeyboardInput kb;
+    std::cout << "Pressione teclas (ESC para sair)...\n";
+
+    while(true) {
+        if (kb.kbhit()) {
+            int tecla = kb.getch();
+            if (tecla != -1) {
+                std::cout << "Tecla pressionada: " << kb.getTeclaDescricao(tecla) << std::endl;
+
+                if (tecla == 27) {  // ESC
+                    std::cout << "Programa encerrado!\n";
+                    break;
+                }
+            }
+        }
+        // Pequena pausa para reduzir uso de CPU
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    }
+}
 
 int main() {
     /*
@@ -32,10 +58,12 @@ int main() {
     */
 
     // Define a mensagem que será lida em voz alta
-    const std::string message = "Estamos usando o recurso de transformação de texto escrito para voz falada";
+    const std::string message = "A seguir, um comando pedirá para que teclas sejam pressionadas. Pressione-as!";
 
     // Chama a função que converte o texto em fala
     TextToVoice::speak(message);
+
+    detectarTeclas();
 
     return 0;
 }
