@@ -13,6 +13,7 @@ Obs: Para recurso de acessibilidade:
     -> sudo apt update
        sudo apt install espeak
        sudo apt install libespeak-dev
+       sudo apt install espeak-ng-data
 
 Para compilação: g++ *.cpp -lespeak -lsqlite3
 
