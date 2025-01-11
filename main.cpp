@@ -32,7 +32,7 @@ int main() {
     */
 
     // Define a mensagem que será lida em voz alta
-    const std::string message = "Olá, este é um exemplo usando a biblioteca eSpeak em português do Brasil.";
+    const std::string message = "Estamos usando o recurso de transformação de texto escrito para voz falada";
 
     // Chama a função que converte o texto em fala
     TextToVoice::speak(message);
