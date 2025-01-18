@@ -3,6 +3,10 @@ project(ProjetoFinal)
 
 set(CMAKE_CXX_STANDARD 14)
 
+find_package(SQLite3 REQUIRED)
+target_include_directories(${PROJECT_NAME} PRIVATE ${SQLite3_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${SQLite3_LIBRARIES})
+
 add_executable(ProjetoFinal main.cpp
         DatabaseConnection.cpp
         DatabaseConnection.h

@@ -4,8 +4,11 @@ CXX = g++
 # Flags de compilação
 CXXFLAGS = -Wall -Wextra -std=c++17 -g -O2
 
+# Diretórios onde o compilador vai procurar os arquivos de cabeçalho
+INCLUDES = -I"C:/caminho/para/o/sqlite3"
+
 # Bibliotecas necessárias
-LIBS = -lespeak -lsqlite3
+LIBS = -lespeak -L"C:/caminho/para/o/sqlite3/lib" -lsqlite3
 
 # Nome do executável
 TARGET = programa
@@ -30,11 +33,11 @@ all: $(TARGET)
 
 # Regra para criar o executável
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS) $(LIBS)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(TARGET) $(OBJS) $(LIBS)
 
 # Regra para compilar arquivos fonte em objetos
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 # Limpa os arquivos gerados (executável e objetos)
 clean:
