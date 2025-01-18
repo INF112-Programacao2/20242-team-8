@@ -88,3 +88,36 @@ Certifique-se de substituir "C:/path/to/espeak-ng/lib" pelo diretório correto o
 DLL no PATH:
 Certifique-se de que o arquivo espeak-ng.dll esteja no mesmo diretório que o seu executável ou no diretório especificado no PATH do sistema. Caso contrário, o programa não conseguirá carregar a biblioteca durante a execução.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Baixando o SQLite3 para Windows
+Acesse o site oficial do SQLite:
+Vá para a página de downloads do SQLite:
+SQLite Download Page
+
+Baixe os arquivos necessários:
+Na seção "Precompiled Binaries for Windows", você verá as opções de download. Para Windows, baixe os seguintes arquivos:
+
+SQLite DLL:
+sqlite-dll-win32-x86-*.zip (se você estiver usando uma arquitetura de 32 bits)
+sqlite-dll-win64-x86-*.zip (se você estiver usando uma arquitetura de 64 bits)
+SQLite Command-Line Tools (opcional, mas útil para testar diretamente):
+sqlite-tools-win32-x86-*.zip ou sqlite-tools-win64-x86-*.zip (dependendo de sua arquitetura).
+Descompacte os arquivos:
+
+Extraia os arquivos ZIP que você baixou em uma pasta de sua escolha. Você verá o arquivo sqlite3.dll (biblioteca) e sqlite3.exe (ferramenta de linha de comando).
+2. Configuração no Windows
+Adicionar ao PATH (opcional, mas recomendado): Para facilitar o uso do SQLite em qualquer lugar no terminal, adicione o diretório onde você extraiu o sqlite3.exe e sqlite3.dll ao PATH do sistema.
+
+Passo 1: Clique com o botão direito em "Este PC" ou "Computador" e selecione "Propriedades".
+Passo 2: Clique em "Configurações avançadas do sistema".
+Passo 3: Na janela de "Propriedades do Sistema", clique em "Variáveis de ambiente".
+Passo 4: Na seção "Variáveis do sistema", encontre a variável Path e clique em "Editar".
+Passo 5: Adicione o caminho completo da pasta onde você extraiu os arquivos sqlite3.exe e sqlite3.dll à variável Path. Por exemplo, se você extraiu os arquivos em C:\sqlite, adicione C:\sqlite ao PATH.
+Passo 6: Clique em "OK" para confirmar as alterações.
+Verificar se o SQLite3 foi instalado corretamente: Abra o terminal (Prompt de Comando ou PowerShell) e digite o seguinte comando para verificar se o SQLite3 está acessível:
+
+bash
+Copiar
+Editar
+sqlite3 --version
+Se tudo estiver configurado corretamente, você verá a versão do SQLite3 sendo exibida.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
