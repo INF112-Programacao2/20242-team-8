@@ -17,3 +17,7 @@ Obs: Para recurso de acessibilidade:
 
 Para compilação: g++ *.cpp -lespeak -lsqlite3
 
+OU 
+
+make -> make run (se tiver o make e mingw(suporte ao g++) instalado)
+
