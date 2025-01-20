@@ -1,3 +1,3 @@
-/home/viniciuskl/CLionProjects/ProjetoFinal/cmake-build-debug/CMakeFiles/ProjetoFinal.dir
-/home/viniciuskl/CLionProjects/ProjetoFinal/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/viniciuskl/CLionProjects/ProjetoFinal/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/viniciuskl/CLionProjects/20242-team-8/cmake-build-debug/CMakeFiles/ProjetoFinal.dir
+/home/viniciuskl/CLionProjects/20242-team-8/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/viniciuskl/CLionProjects/20242-team-8/cmake-build-debug/CMakeFiles/rebuild_cache.dir

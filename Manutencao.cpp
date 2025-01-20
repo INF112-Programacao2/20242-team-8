@@ -4,41 +4,15 @@
 
 #include "Manutencao.h"
 #include <iostream>
+#include <utility>
 
-Manutencao::Manutencao(std::string _nomeFuncionario, std::string IDfuncionario, std::string _data, std::string nome_marca, std::string _modelo,
-    std::string _funcao, std::string _placa, std::string _nome_TipoProduto, float _minimo, int _quantidade, std::string _numero,
-    std::string _dataCompra, std::string _dataUso, std::string _localCompra, int _quantidadeComprada, std::string IDregistro, std::string IDManutencao) {
-
-    funcionario.set_nome(_nomeFuncionario);
-    funcionario.set_ID_Funcionario(IDfuncionario);
-
-    data = _data;
-
-    // nome_marca -> carro -> tipoCarro -> Marca -> setNome()
-    carro.set_placa(_placa);
-
-    // produto -> tipoProduto -> setNome()
-
-    registro.set_dataCompra(_dataCompra);
-    registro.set_dataUso(_dataUso);
-    registro.set_localCompra(_localCompra);
-    registro.alterarQuantidade(_quantidadeComprada);
-    registro.set_ID(IDregistro);
-    ID_Manutencao = IDManutencao;
-};
-
-/*
-void Manutencao::alterarQuantidade() {
-
-};
-
-void Manutencao::registrarDataUso() {
-
-};
-*/
+Manutencao::Manutencao(std::string _nomeFuncionario, std::string IDfuncionario, std::string _data, const std::string& nome_marca, const std::string& _modelo,
+    const std::string& _funcao, std::string _placa, const std::string& _nome_TipoProduto, const float _minimo, const int _quantidade, std::string _numero,
+    std::string _dataCompra, std::string _dataUso, std::string _localCompra, const int _quantidadeComprada, std::string IDregistro, std::string IDManutencao):
+funcionario(std::move(_nomeFuncionario), std::move(IDfuncionario)), data(std::move(_data)), carro(nome_marca, _modelo, _funcao, std::move(_placa)), produto(_nome_TipoProduto, _minimo, _quantidade, nome_marca, std::move(_numero)), registro(std::move(_dataCompra), std::move(_dataUso), std::move(_localCompra), _quantidadeComprada, std::move(IDregistro)), ID_Manutencao(std::move(IDManutencao)){}
 
 std::string Manutencao::get_IDmanutencao() {
     return ID_Manutencao;
-};
+}
 
-Manutencao::~Manutencao() {};
+Manutencao::~Manutencao() = default;

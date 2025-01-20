@@ -26,7 +26,7 @@
 ** on how SQLite interfaces are supposed to operate.
 **
 ** The name of this file under configuration management is "sqlite.h.in".
-** The makefile makes some minor changes to this file (such as inserting
+** The Makefile makes some minor changes to this file (such as inserting
 ** the version number) and changes its name to "sqlite3.h" as
 ** part of the build process.
 */

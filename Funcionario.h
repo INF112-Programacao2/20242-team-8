@@ -14,7 +14,7 @@ private:
 public:
     Funcionario(std::string _nome, std::string _ID_funcionario);
     Funcionario();
-    void exibirDados(); //get_funcionario
+    void exibirDados() const; //get_funcionario
     void set_nome(std::string _nome);
     void set_ID_Funcionario(std::string ID);
     std::string get_nome();

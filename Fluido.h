@@ -15,8 +15,11 @@ public:
     Fluido(std::string _nome, double _volume_minimo, char _unidade);
     void set_volume_minimo(double num);
     void set_unidade(char c);
-    double get_volume_minimo();
-    char get_unidade();
+
+    double get_volume_minimo() const;
+
+    char get_unidade() const;
+
     ~Fluido();
 };
 

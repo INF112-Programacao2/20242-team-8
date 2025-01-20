@@ -5,17 +5,15 @@
 #include "Marca.h"
 #include <iostream>
 
-Marca::Marca(std::string _nome) {
+Marca::Marca(const std::string &_nome) {
     nome = _nome;
 };
 
-Marca::Marca() {}
-
-void Marca::obterDados() { // função de getMarca()
+void Marca::obterDados() const { // função de getMarca()
     std::cout << "Nome da Marca: " << nome << '\n';
 };
 
-void Marca::set_nome(std::string txt) {
+void Marca::set_nome(const std::string &txt) {
     nome = txt;
 };
 
@@ -23,4 +21,4 @@ std::string Marca::get_nome() {
     return nome;
 };
 
-Marca::~Marca() {};
+Marca::~Marca() = default;

@@ -16,16 +16,15 @@ private:
     std::string ID_Registro;
 public:
     Registro(std::string _dataCompra, std::string _dataUso, std::string _localCompra, int _quantidadeComprada, std::string IDregistro);
-    Registro();
     void alterarQuantidade(int qtd); //set quantidade
-    void set_dataCompra(std::string txt);
-    void set_dataUso(std::string txt);
-    void set_localCompra(std::string txt);
-    void set_ID(std::string _ID);
+    void set_dataCompra(const std::string &txt);
+    void set_dataUso(const std::string &txt);
+    void set_localCompra(const std::string &txt);
+    void set_ID(const std::string &_ID);
     std::string get_dataCompra();
     std::string get_dataUso();
     std::string get_localCompra();
-    int get_quantidadeComprada();
+    int get_quantidadeComprada() const;
     std::string get_IDregistro();
     ~Registro();
 };

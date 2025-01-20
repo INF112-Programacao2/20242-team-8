@@ -5,30 +5,26 @@
 #include "Funcionario.h"
 #include <string>
 #include <iostream>
+#include <utility>
 
 Funcionario::Funcionario(std::string _nome, std::string _ID_funcionario) {
-    nome = _nome;
-    ID_Funcionario = _ID_funcionario;
+    nome = std::move(_nome);
+    ID_Funcionario = std::move(_ID_funcionario);
 };
 
-Funcionario::Funcionario() {}
+Funcionario::~Funcionario() = default;
 
-Funcionario::~Funcionario() {}
-
-void Funcionario::exibirDados() { // funciona como "get_dados()"
+void Funcionario::exibirDados() const { // funciona como "get_dados()"
     std::cout << "nome do funcionário: " << nome << '\n';
     std::cout << "ID do funcionário: " << ID_Funcionario << '\n';
-    return;
 };
 
 void Funcionario::set_nome(std::string _nome) {
-    nome = _nome;
-    return;
+    nome = std::move(_nome);
 };
 
 void Funcionario::set_ID_Funcionario(std::string ID) {
-    ID_Funcionario = ID;
-    return;
+    ID_Funcionario = std::move(ID);
 };
 
 std::string Funcionario::get_nome() {

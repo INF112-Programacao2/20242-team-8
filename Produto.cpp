@@ -4,19 +4,13 @@
 
 #include "Produto.h"
 #include <iostream>
+#include <utility>
 
-Produto::Produto(std::string _nome, float _minimo, int _quantidade, std::string nome_marca, std::string _numero) { // o atributo carrosCompativeis será atribuido apenas após utilizarmos o método criaVetorCarros()
-    tipo.set_nome(_nome);
-    quantidade = _quantidade;
-    marca.set_nome(nome_marca);
-    numero = _numero;
-    // o que fazer com o _mínimo??
-}
-
-Produto::Produto() {}
+Produto::Produto(const std::string& _nome, float _minimo, int _quantidade, const std::string& nome_marca, std::string _numero):
+tipo(_nome), quantidade(_quantidade), marca(nome_marca), numero(std::move(_numero)){}// o atributo carrosCompativeis será atribuido apenas após utilizarmos o método criaVetorCarros()
 
 void Produto::obterDados() {
-    std::cout << "Nome do produto: " << tipo.get_nome() << '\n';
+    tipo.obterDados();
     std::cout << "Quantidade do produto: " << quantidade << '\n';
     std::cout << "Marca usada pelo produto " << marca.get_nome() << '\n';
     std::cout << "Número (ID) do produto " << numero << '\n';
@@ -24,7 +18,6 @@ void Produto::obterDados() {
 
 void Produto::alterarQuantidade(int value) { // setQuantidade()
     quantidade = value;
-    return;
 }
 
 void Produto::set_numero(std::string num) {

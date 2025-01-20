@@ -5,14 +5,16 @@
 #include "Mensagem.h"
 #include <iostream>
 
-/*
-Mensagem::Mensagem() {};
 
-void Mensagem::exibirMensagem() {};
+void Mensagem::exibirMensagem() {
 
-void Mensagem::set_conteudo(std::string txt) {};
+}
 
-std::string Mensagem::get_conteudo() {};
+void Mensagem::gera_conteudo(std::string txt) {
 
-Mensagem::~Mensagem() {};
-*/
+}
+
+std::string Mensagem::getConteudo() {
+}
+
+Mensagem::~Mensagem() = default;

@@ -5,24 +5,20 @@
 #include "Carro.h"
 #include <string>
 #include <iostream>
+#include <utility>
 
-Carro::Carro(std::string _nome, std::string _modelo, std::string _funcao, std::string _placa) {
-    // marca?
-    tipoCarro.set_modelo(_modelo);
-    tipoCarro.set_funcao(_funcao);
-    placa = _placa;
-};
+Carro::Carro(const std::string& _nome, const std::string& _modelo, const std::string& _funcao, std::string placa):
+    tipoCarro(_nome, _modelo, _funcao), placa(std::move(placa)) {}
 
-Carro::Carro() {}
+Carro::~Carro()= default;
 
-Carro::~Carro() {}
-
-void Carro::obterDados() {
-
+void Carro::obterDados() const {
+    tipoCarro.obterDados();
+    std::cout << "Placa do veiculo: " << placa << "\n";
 }; //faz papel de get_carro (fazer chamada dos outros obterdados() aqui)
 
 void Carro::set_placa(std::string txr) {
-    placa = txr;
+    placa = std::move(txr);
 };
 
 std::string Carro::get_placa() {

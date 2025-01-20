@@ -4,25 +4,22 @@
 
 #include "TipoProduto.h"
 #include <iostream>
+#include <utility>
 
 TipoProduto::TipoProduto(std::string _nome) {
-    nome = _nome;
+    nome = std::move(_nome);
 };
 
-TipoProduto::TipoProduto() {}
-
-void TipoProduto::obterDados() { //getDados
+void TipoProduto::obterDados() const { //getDados
     std::cout << "Nome do produto: " << nome << '\n';
-    return;
 };
 
-void TipoProduto::set_nome(std::string txt) {
+void TipoProduto::set_nome(const std::string &txt) {
     nome = txt;
-    return;
 };
 
 std::string TipoProduto::get_nome() {
     return nome;
 };
 
-TipoProduto::~TipoProduto() {};
+TipoProduto::~TipoProduto() = default;

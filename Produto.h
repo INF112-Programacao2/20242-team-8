@@ -14,10 +14,10 @@ private:
     TipoProduto tipo;
     int quantidade;
     Marca marca;
-    TipoCarro* carrosCompativeis;
+    TipoCarro* carrosCompativeis{};
     std::string numero;
 public:
-    Produto(std::string _nome, float _minimo, int _quantidade, std::string nome_marca, std::string _numero); //o atributo carrosCompativeis será atribuido apenas após utilizarmos o método criaVetorCarros()
+    Produto(const std::string& _nome, float _minimo, int _quantidade, const std::string& nome_marca, std::string _numero); //o atributo carrosCompativeis será atribuido apenas após utilizarmos o método criaVetorCarros()
     Produto();
     void obterDados();
     void alterarQuantidade(int value); //set_quantidade

@@ -11,9 +11,11 @@ class Peca : public TipoProduto{
 private:
     int quantidade_minima;
 public:
-    Peca(std::string _nome, int _quantidade_minima);
+    Peca(const std::string &_nome, int _quantidade_minima);
     void set_quantidade_minima();
-    int get_quantidade_minima();
+
+    int get_quantidade_minima() const;
+
     ~Peca();
 };
 

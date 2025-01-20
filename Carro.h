@@ -12,9 +12,8 @@ private:
     TipoCarro tipoCarro;
     std::string placa;
 public:
-    Carro(std::string _nome, std::string _modelo, std::string _funcao, std::string placa);
-    Carro();
-    void obterDados(); //faz papel de get_carro (fazer chamada dos outros obterdados() aqui)
+    Carro(const std::string& _nome, const std::string& _modelo, const std::string& _funcao, std::string placa);
+    void obterDados() const; //faz papel de get_carro (fazer chamada dos outros obterdados() aqui)
     void set_placa(std::string txr);
     std::string get_placa();
     ~Carro();
