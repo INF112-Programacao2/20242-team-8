@@ -8,7 +8,8 @@
 #include <utility>
 
 Carro::Carro(const std::string& _nome, const std::string& _modelo, const std::string& _funcao, std::string placa):
-    tipoCarro(_nome, _modelo, _funcao), placa(std::move(placa)) {}
+    tipoCarro(_nome, _modelo, _funcao),
+    placa(std::move(placa)) {}
 
 Carro::~Carro()= default;
 

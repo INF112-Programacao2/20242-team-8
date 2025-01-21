@@ -4,28 +4,30 @@
 
 #include "Produto.h"
 #include <iostream>
+#include <thread>
 #include <utility>
 
-Produto::Produto(const std::string& _nome, float _minimo, int _quantidade, const std::string& nome_marca, std::string _numero):
-tipo(_nome), quantidade(_quantidade), marca(nome_marca), numero(std::move(_numero)){}// o atributo carrosCompativeis será atribuido apenas após utilizarmos o método criaVetorCarros()
+#include "KeyboardInput.h"
+
+Produto::Produto(std::string _nome, const int _quantidade, const std::string& nome_marca, std::string _numero, const double _minimo):
+tipo_produto_produto(std::move(_nome)), quantidade(_quantidade), minimo(_minimo), marca(nome_marca), numero(std::move(_numero)){}// o atributo carrosCompativeis será atribuido apenas após utilizarmos o método criaVetorCarros()
 
 void Produto::obterDados() {
-    tipo.obterDados();
+    tipo_produto_produto.obterDados();
     std::cout << "Quantidade do produto: " << quantidade << '\n';
     std::cout << "Marca usada pelo produto " << marca.get_nome() << '\n';
     std::cout << "Número (ID) do produto " << numero << '\n';
 };
 
-void Produto::alterarQuantidade(int value) { // setQuantidade()
+void Produto::alterarQuantidade(const int value) { // setQuantidade()
     quantidade = value;
 }
 
-void Produto::set_numero(std::string num) {
+void Produto::set_numero(const std::string &num) {
     numero = num;
-    return;
 };
 
-int Produto::get_quantidade() {
+int Produto::get_quantidade() const {
     return quantidade;
 };
 
@@ -33,10 +35,30 @@ std::string Produto::get_numero() {
     return numero;
 };
 
+void Produto::setTipo(std::string _tipo) {
+    tipo = std::move(_tipo);
+}
+
+void Produto::defineTipo() {
+    std:: cout << "Defina o tipo do produto: " << '\n';
+    std::cout << "Aperte (1) para produtos do tipo FLUIDO" << '\n';
+    std::cout << "Aperte (2) para produtos do tipo PEÇA" << '\n';
+    char opcao;
+    std::cin >> opcao;
+    if (opcao == '1') {
+        setTipo("FLUIDO");
+    }
+    else if (opcao == '2') {
+        setTipo("PECA");
+    }
+}
+
+std::string Produto::getTipo() {
+    return tipo;
+}
+
 void Produto::criaVetorCarros() {
-    // ??
+
 };
 
-Produto::~Produto() {
-    // delete carrosCompativeis
-};
+Produto::~Produto()= default;

@@ -12,7 +12,6 @@ private:
     std::string nome;
 public:
     explicit Marca(const std::string &_nome);
-
     void obterDados() const; //faz função de get_marca
     void set_nome(const std::string &txt);
     std::string get_nome();

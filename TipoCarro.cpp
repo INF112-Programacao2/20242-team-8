@@ -7,11 +7,8 @@
 #include <iostream>
 #include <utility>
 
-TipoCarro::TipoCarro(const std::string& _nome, const std::string &_modelo, const std::string &_funcao) {
-    marca.set_nome(_nome);
-    modelo = _modelo;
-    funcao = _funcao;
-};
+TipoCarro::TipoCarro(const std::string& _nome, std::string _modelo, std::string _funcao):
+    marca(_nome), modelo(std::move(_modelo)), funcao(std::move(_funcao)) {}
 
 void TipoCarro::obterDados() const { //faz função de get_TipoCarro
     marca.obterDados();

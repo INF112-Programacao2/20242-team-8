@@ -4,6 +4,7 @@
 
 #include "DatabaseConnection.h"
 #include "KeyboardInput.h"
+#include "Produto.h"
 #include "TextToVoice.h"
 
 
@@ -29,7 +30,8 @@ void detectarTeclas() {
 }
 
 int main() {
-    /*
+    Produto p("Jorge e matheus", 42, "Cristiano Araujo", "220222", 75.4);
+
     // Cria objeto de conexão com o banco
     DatabaseConnection db("DATABASE.sqlite");
     
@@ -55,8 +57,19 @@ int main() {
             std::cout << "Dados inseridos com sucesso!" << std::endl;
         }
     }
-    */
 
+    std::string apagaTabela = "DROP TABLE IF EXISTS usuarios";
+    if (db.executeQuery(apagaTabela)) {
+        std::cout << "Tabela apagada com sucesso!" << std::endl;
+    }
+
+    p.obterDados();
+    std::cout << std::endl;
+    p.defineTipo();
+    std::cout << std::endl;
+    std::cout << p.getTipo();
+    std::cout << std::endl;
+/*
     // Define a mensagem que será lida em voz alta
     const std::string message = "A seguir, um comando pedirá para que teclas sejam pressionadas. Pressione-as!";
 
@@ -64,6 +77,6 @@ int main() {
     TextToVoice::speak(message);
 
     detectarTeclas();
-
+*/
     return 0;
 }
