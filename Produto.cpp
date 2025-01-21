@@ -15,8 +15,9 @@ tipo_produto_produto(std::move(_nome)), quantidade(_quantidade), minimo(_minimo)
 void Produto::obterDados() {
     tipo_produto_produto.obterDados();
     std::cout << "Quantidade do produto: " << quantidade << '\n';
-    std::cout << "Marca usada pelo produto " << marca.get_nome() << '\n';
-    std::cout << "Número (ID) do produto " << numero << '\n';
+    std::cout << "Minimo permitido no estoque: " << minimo << '\n';
+    std::cout << "Marca usada pelo produto: " << marca.get_nome() << '\n';
+    std::cout << "Número (ID) do produto: " << numero << '\n';
 };
 
 void Produto::alterarQuantidade(const int value) { // setQuantidade()
@@ -41,10 +42,10 @@ void Produto::setTipo(std::string _tipo) {
 
 void Produto::defineTipo() {
     std:: cout << "Defina o tipo do produto: " << '\n';
-    std::cout << "Aperte (1) para produtos do tipo FLUIDO" << '\n';
-    std::cout << "Aperte (2) para produtos do tipo PEÇA" << '\n';
+    std::cout << "Aperte (1) para produtos do tipo FLUIDO:" << '\n';
+    std::cout << "Aperte (2) para produtos do tipo PEÇA:" << '\n';
     char opcao;
-    std::cin >> opcao;
+    std::cout << "-> "; std::cin >> opcao;
     if (opcao == '1') {
         setTipo("FLUIDO");
     }

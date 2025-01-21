@@ -6,9 +6,8 @@
 #include <iostream>
 #include <utility>
 
-Registro::Registro(std::string _dataCompra, std::string _dataUso, std::string _localCompra, const int _quantidadeComprada, std::string IDregistro) {
+Registro::Registro(std::string _dataCompra, std::string _localCompra, const int _quantidadeComprada, std::string IDregistro) {
     dataCompra = std::move(_dataCompra);
-    dataUso = std::move(_dataUso);
     localCompra = std::move(_localCompra);
     quantidadeComprada = _quantidadeComprada;
     ID_Registro = std::move(IDregistro);
@@ -54,5 +53,13 @@ int Registro::get_quantidadeComprada() const {
 std::string Registro::get_IDregistro() {
     return ID_Registro;
 };
+
+void Registro::alterarQuantidadeAcrescentar(const int qtd) {
+    quantidadeComprada += qtd;
+}
+
+void Registro::alterarQuantidadeSubtrair(const int qtd) {
+    quantidadeComprada -= qtd;
+}
 
 Registro::~Registro() = default;
