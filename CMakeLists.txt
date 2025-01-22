@@ -31,4 +31,6 @@ add_executable(ProjetoFinal main.cpp
         TextToVoice.cpp
         TextToVoice.h
         KeyboardInput.cpp
-        KeyboardInput.h)
+        KeyboardInput.h
+        Interface.cpp
+        Interface.h)
