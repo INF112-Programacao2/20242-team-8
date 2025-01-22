@@ -9,19 +9,19 @@
 
 class Interface {
 public:
-    void exibirMenuPrincipal();
+    int exibirMenuPrincipal();
 
-    void exibirSubcategoriaPecas();
-    void subcategoriaAdicionarProduto();
+    int exibirSubcategoriaProduto();
+    int subcategoriaAdicionarProduto();
 
-    void exibirSubcategoriaVeiculos();
-    void subcategoriaModificarVeiculo();
+    int exibirSubcategoriaVeiculos();
+    int subcategoriaModificarVeiculo();
 
-    void exibirSubcategoriaFuncionarios();
-    void subcategoriaModificarFuncionarios();
+    int exibirSubcategoriaFuncionarios();
+    int subcategoriaModificarFuncionarios();
 
-    void exibirSubcategoriaManutencao();
-    void subcategoriaModificarManutencao();
+    int exibirSubcategoriaManutencao();
+    int subcategoriaModificarManutencao();
 
 };
 
