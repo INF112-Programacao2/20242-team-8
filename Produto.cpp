@@ -12,6 +12,9 @@
 Produto::Produto(std::string _nome, const int _quantidade, const std::string& nome_marca, std::string _numero, const double _minimo):
 tipo_produto_produto(std::move(_nome)), quantidade(_quantidade), minimo(_minimo), marca(nome_marca), numero(std::move(_numero)){}// o atributo carrosCompativeis será atribuido apenas após utilizarmos o método criaVetorCarros()
 
+Produto::Produto(std::string _nome, const int _quantidade, const std::string& nome_marca, std::string numero):
+    tipo_produto_produto(std::move(_nome)), quantidade(_quantidade), marca(nome_marca), numero(std::move(numero)){}
+
 void Produto::obterDados() {
     tipo_produto_produto.obterDados();
     std::cout << "Quantidade do produto: " << quantidade << '\n';

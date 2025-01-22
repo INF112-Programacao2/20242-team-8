@@ -14,7 +14,4 @@ void Mensagem::gera_conteudo(std::string txt) {
 
 }
 
-std::string Mensagem::getConteudo() {
-}
-
 Mensagem::~Mensagem() = default;

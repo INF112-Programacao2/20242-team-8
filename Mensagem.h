@@ -12,12 +12,11 @@ private:
     Manutencao manutencao_;
     std::string conteudo;
 public:
-    Mensagem(std::string _nomeFuncionario, std::string IDfuncionario, std::string _data, const std::string& nome_marca, const std::string& _modelo,
-    const std::string& _funcao, std::string _placa, const std::string& _nome_TipoProduto, float _minimo, int _quantidade, std::string _numero,
-    std::string _dataCompra, std::string _dataUso, std::string _localCompra, int _quantidadeComprada, std::string IDregistro, std::string IDManutencao);
+    Mensagem(std::string nomeFuncionario, std::string idFuncionario, std::string dataManutencao, std::string nomeCarro,
+        std::string modeloCarro, std::string funcaoCarro, std::string PlacaCarro, std::string nomeTipoProduto, int quantidadeProduto, std::string numeroProduto, std::string dataCompraRegistro,
+        std::string dataUsoRegistro, std::string localCompraRegistro, int quantidadeCompradaRegistro, std::string idRegistro, std::string idManutencao);
     void exibirMensagem();
     void gera_conteudo(std::string txt);
-    std::string getConteudo();
     ~Mensagem();
 };
 

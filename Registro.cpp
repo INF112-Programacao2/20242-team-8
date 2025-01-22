@@ -6,7 +6,8 @@
 #include <iostream>
 #include <utility>
 
-Registro::Registro(std::string _dataCompra, std::string _localCompra, const int _quantidadeComprada, std::string IDregistro) {
+Registro::Registro(std::string _nome, int quantidade, std::string nome_marca, std::string numero, std::string _dataCompra, std::string _localCompra, int _quantidadeComprada, std::string IDregistro) {
+    produto = new Produto(std::move(_nome), quantidade, std::move(nome_marca), std::move(numero));
     dataCompra = std::move(_dataCompra);
     localCompra = std::move(_localCompra);
     quantidadeComprada = _quantidadeComprada;

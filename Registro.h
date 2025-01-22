@@ -6,16 +6,19 @@
 #define REGISTRO_H
 #include <string>
 
+#include "Produto.h"
+
 
 class Registro {
 private:
+    Produto *produto;
     std::string dataCompra;
     std::string dataUso;
     std::string localCompra;
     int quantidadeComprada;
     std::string ID_Registro;
 public:
-    Registro(std::string _dataCompra, std::string _localCompra, int _quantidadeComprada, std::string IDregistro);
+    Registro(std::string _nome, int quantidade, std::string nome_marca, std::string numero, std::string _dataCompra, std::string _localCompra, int _quantidadeComprada, std::string IDregistro);
     void alterarQuantidade(int qtd); //set quantidade
     void alterarQuantidadeAcrescentar(int qtd); //soma
     void alterarQuantidadeSubtrair(int qtd); //subtrai
