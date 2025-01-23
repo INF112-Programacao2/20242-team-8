@@ -20,7 +20,21 @@ class Execucao{
         void telaVeiculo();
 
         void telaFuncionario();
+        void telaAdicionarFuncionario();
+        void telaConferirFuncionarios();
+        //---
+        void telaModificarFuncionarios();
+        void telaAlterarFuncionario();
+        void telaDeletarFuncionario();
+        //---
         
         void telaManutencao();
+        void telaAdicionarManutencao();
+        void telaConferirManutencoes();
+        //---
+        void telaModificarManutencao();
+        void telaAlterarManutencao();
+        void telaDeletarManutencao();
+        //---
 
 };
