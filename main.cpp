@@ -6,8 +6,9 @@
 #include "KeyboardInput.h"
 #include "Produto.h"
 #include "TextToVoice.h"
+#include "Banco.h"
 
-
+/*
 void detectarTeclas() {
     KeyboardInput kb;
     std::cout << "Pressione teclas (ESC para sair)...\n";
@@ -28,10 +29,13 @@ void detectarTeclas() {
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 }
+*/
 
 int main() {
-    Produto p("Jorge e matheus", 42, "Cristiano Araujo", "220222", 75.4);
+    Banco::adicionarProdutoNovo();
+    //Produto p("Jorge e matheus", 42, "Cristiano Araujo", "220222", 75.4);
 
+    /*
     // Cria objeto de conexão com o banco
     DatabaseConnection db("DATABASE.sqlite");
     
@@ -41,6 +45,8 @@ int main() {
         return 1;  // Retorna código de erro
     }
 
+
+/*
     // Define query SQL para criar tabela de usuários
     std::string createTable = "CREATE TABLE IF NOT EXISTS usuarios ("
                             "id INTEGER PRIMARY KEY AUTOINCREMENT,"  // ID auto incrementável

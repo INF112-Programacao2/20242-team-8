@@ -44,18 +44,30 @@ void Produto::setTipo(std::string _tipo) {
 }
 
 std::string Produto::defineTipo() {
+    bool verificador = false;
+    do{
     std::cout << "Defina o tipo do produto: " << '\n';
     std::cout << "Aperte (1) para produtos do tipo FLUIDO:" << '\n';
     std::cout << "Aperte (2) para produtos do tipo PEÇA:" << '\n';
     int opcao;
     std::cout << "-> ";
+    try{
     std::cin >> opcao;
+    if(opcao<1 || opcao>2){
+      throw std::invalid_argument("Opcao invalida! Insira novamente!");
+    }
+    }
+    catch (std::invalid_argument& e) {
+      std::cout << e.what() << '\n';
+      verificador = true;
+    }
     if (opcao == 1) {
         return "Fluido";
     }
     else if (opcao == 2) {
-        return "Peca";
-    }
+       return "Peca";
+        }
+    }while(verificador);
 }
 
 std::string Produto::getTipo() {
