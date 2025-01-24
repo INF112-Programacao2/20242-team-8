@@ -23,6 +23,8 @@ void Execucao::telaInicial(){
     }
 }
 
+//-----------------------------------------------
+
 void Execucao::telaProduto(){
     int valor;
     valor = Interface::exibirSubcategoriaProduto();
@@ -34,16 +36,107 @@ void Execucao::telaProduto(){
         Execucao::telaConferirEstoque();
         break;
     case 3:
-        Execucao::telaExcluirProduto();
+        Execucao::telaRemoverProduto();
         break;
     case 4:
-        Execucao::telaAlterarDados();
+        Execucao::telaAlterarDadosProduto();
         break;
     case 5:
         Execucao::telaInicial();
         break;
     }
 };
+
+void Execucao::telaAdicionarProduto(){
+    int valor; 
+    valor = Interface::subcategoriaAdicionarProduto();
+    switch(valor){
+    case 1:
+        Execucao::telaAdicionarNovoProduto();
+        break;
+    case 2:
+        Execucao::telaAdicionarProdutoExistente();
+        break;
+    case 3:
+        Execucao::telaProduto();
+        break;
+    }
+}
+
+void Execucao::telaAdicionarNovoProduto(){
+
+};
+
+void Execucao::telaAdicionarProdutoExistente(){
+
+};
+
+void Execucao::telaConferirEstoque(){
+
+};
+
+void Execucao::telaRemoverProduto(){
+
+};
+
+void Execucao::telaAlterarDadosProduto(){
+
+};
+
+//-------------------------------------------------
+
+void Execucao::telaVeiculo(){
+    int valor;
+    valor = Interface::exibirSubcategoriaProduto();
+    switch(valor){
+    case 1:
+        Execucao::telaAdicionarVeiculo();
+        break;
+    case 2:
+        Execucao::telaConferirVeiculosCadastrados();
+        break;
+    case 3:
+        Execucao::telaModificarVeiculos();
+        break;
+    case 4:
+        Execucao::telaInicial();
+        break;
+    }
+};
+
+void Execucao::telaAdicionarVeiculo(){
+
+};
+
+void Execucao::telaConferirVeiculosCadastrados(){
+
+};
+
+void Execucao::telaModificarVeiculos(){
+int valor;
+    valor = Interface::exibirSubcategoriaProduto();
+    switch(valor){
+    case 1:
+        Execucao::telaAlterarVeiculos();
+        break;
+    case 2:
+        Execucao::telaExcluirVeiculo();
+        break;
+    case 3:
+        Execucao::telaVeiculo();
+        break;
+    }
+};
+
+void Execucao::telaAlterarVeiculos(){
+
+};
+
+void Execucao::telaExcluirVeiculo(){
+
+};
+
+//-------------------------------------------------
 
 void Execucao::telaFuncionario(){
     int valor;
@@ -88,13 +181,15 @@ void Execucao::telaModificarFuncionarios(){
     }
 };
 
-void Execucao::telaAlterarFuncionario() {
+void Execucao::telaAlterarFuncionario(){
 
-}
+};
 
-void Execucao::telaDeletarFuncionario() {
+void Execucao::telaDeletarFuncionario(){
 
-}
+};
+
+//-----------------------------------------------
 
 void Execucao::telaManutencao(){
     int valor;
@@ -117,11 +212,11 @@ void Execucao::telaManutencao(){
 
 void Execucao::telaAdicionarManutencao() {
 
-}
+};
 
 void Execucao::telaConferirManutencoes() {
 
-}
+};
 
 void Execucao::telaModificarManutencao() {
     int valor;
@@ -137,12 +232,12 @@ void Execucao::telaModificarManutencao() {
         Execucao::telaInicial();
         break;
     }
-}
+};
 
 void Execucao::telaAlterarManutencao() {
 
-}
+};
 
 void Execucao::telaDeletarManutencao() {
-    
-}
+
+};
