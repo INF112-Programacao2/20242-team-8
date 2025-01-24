@@ -32,8 +32,8 @@
         bool executeSelectQuery(const std::string& query);
 
         //callback para pegar o id
-        static int DatabaseConnection::callback_getid(void* data, int argc, char** argv, char** azColName);
-        bool DatabaseConnection::getFirstColumnValue(const std::string& query, std::string& result);
+        static int callback_getid(void* data, int argc, char** argv, char** azColName);
+        bool getFirstColumnValue(const std::string& query, std::string& result);
 
         // Destrutor para limpar recursos
         ~DatabaseConnection();

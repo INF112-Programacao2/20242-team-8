@@ -64,7 +64,8 @@
 				23,
 				25,
 				27,
-				29
+				29,
+				32
 			]
 		}
 	],
@@ -112,7 +113,8 @@
 				23,
 				25,
 				27,
-				29
+				29,
+				32
 			]
 		},
 		{
@@ -133,7 +135,8 @@
 				24,
 				26,
 				28,
-				30
+				30,
+				31
 			]
 		}
 	],
@@ -309,6 +312,17 @@
 			"backtrace" : 1,
 			"path" : "Interface.h",
 			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Banco.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Banco.cpp",
+			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "EXECUTABLE"

@@ -1,0 +1,27 @@
+//EXECUTA O INSERT
+        std::string insertDataTipoProduto = "INSERT INTO TIPOPRODUTO (IDTIPOPRODUTO, nome, tipo) VALUES (NULL, '" + nomeProduto + "', '" + tipoProduto + "');";
+
+        // Executa a consulta INSERT e verifica seu resultado
+        if (!db.executeQuery(insertDataTipoProduto)) {
+            std::cerr << "Falha ao inserir dados do produto!" << std::endl;
+            return;
+        }
+        //FIM DE EXECUTA INSERT
+
+
+        // executa a querry SELECT
+        std::string select = "SELECT IDTIPOPRODUTO AS Identificador, nome, tipo FROM TIPOPRODUTO;";
+        if (!db.executeSelectQuery(select)) {
+            std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+        }
+
+        std::cout.flush(); // Certifica que a saída seja exibida
+        //FIM DO EXECUTA A QUERRY SELECT
+
+        //PROCESSO QUE GUARDA O ID
+        std::string idProduto;
+        std::string selectQuery = "SELECT IDTIPOPRODUTO FROM TIPOPRODUTO WHERE nome = '" + nomeProduto + "'";
+        if (db.getFirstColumnValue(selectQuery, idProduto)) {
+            std::cout << "ID do produto: " << idProduto << std::endl;
+        }
+        //FIM DO PROCESSO QUE GUARDA O ID
