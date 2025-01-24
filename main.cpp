@@ -32,7 +32,8 @@ void detectarTeclas() {
 */
 
 int main() {
-    Banco::adicionarProdutoNovo();
+    //Banco::adicionarProdutoNovo();
+    Banco::adicionarProdutoExistente();
     //Produto p("Jorge e matheus", 42, "Cristiano Araujo", "220222", 75.4);
 
     /*

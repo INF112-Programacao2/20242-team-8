@@ -86,3 +86,51 @@ void Banco::adicionarProdutoNovo() {
         exit(1);
     }
 }
+
+void Banco::adicionarProdutoExistente() {
+    if (conectaBD()) {
+        //CHAMA UM SELECT GERAL
+        std::string select = "select PRODUTO.IDPRODUTO as ID, TIPOPRODUTO.nome as Nome_Do_Produto ,MARCA.nome as Nome_Da_Marca, PRODUTO.quantidade as Quantidade_Disponivel, PRODUTO.numero as Numero_Do_Produto from MARCA inner join PRODUTO on MARCA.IDMARCA = PRODUTO.ID_MARCA inner join TIPOPRODUTO on PRODUTO.ID_TIPOPRODUTO = TIPOPRODUTO.IDTIPOPRODUTO;";
+        if (!db.executeSelectQuery(select)) {
+            std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+        }
+        std::cout.flush();
+        //
+
+        std::string idProduto;
+        std::cout << "Qual o ID do produto a ser alterado? \n";
+        std::cout << "-> ";
+        std::cin >> idProduto;
+
+        std::string quantidade;
+        std::cout << "Qual a quantidade a ser adicionada? \n";
+        std::cout << "-> ";
+        std::cin >> quantidade;
+
+        std::string qtd;
+        std::string selectQueryTipoProduto = "SELECT quantidade FROM PRODUTO WHERE IDPRODUTO = '" + idProduto + "'";
+        db.getFirstColumnValue(selectQueryTipoProduto, qtd);
+
+        int novaQuantidade = stoi(quantidade) + stoi(qtd);
+        std::string novaQTD = std::to_string(novaQuantidade);
+
+        std::string atualizaQuant= "update PRODUTO set quantidade = " + novaQTD +  " where IDPRODUTO=" + idProduto + ";";
+        if (!db.executeQuery(atualizaQuant)) {
+            std::cerr << "Falha ao inserir dados do produto!" << std::endl;
+            return;
+        }
+        std::cout << std::endl;
+        std::cout << "Novos Dados após a alteraçao: \n";
+        std::string select2 = "select PRODUTO.IDPRODUTO as ID, TIPOPRODUTO.nome as Nome_Do_Produto ,MARCA.nome as Nome_Da_Marca, PRODUTO.quantidade as Quantidade_Disponivel, PRODUTO.numero as Numero_Do_Produto from MARCA inner join PRODUTO on MARCA.IDMARCA = PRODUTO.ID_MARCA inner join TIPOPRODUTO on PRODUTO.ID_TIPOPRODUTO = TIPOPRODUTO.IDTIPOPRODUTO where IDPRODUTO = " + idProduto + ";";
+        if (!db.executeSelectQuery(select2)) {
+            std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+        }
+    }
+    else {
+        std::cerr << "Falha ao conectar ao banco de dados!" << std::endl;
+        exit(1);
+    }
+}
+
+
+
