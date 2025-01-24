@@ -28,7 +28,7 @@ public:
     void obterDados();
     std::string getTipo();
     void setTipo(std::string _tipo);
-    void defineTipo();
+    static std::string defineTipo();
     void alterarQuantidade(int value); //set_quantidade
     void set_numero(const std::string &num);
     int get_quantidade() const;

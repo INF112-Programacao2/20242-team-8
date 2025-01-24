@@ -7,29 +7,29 @@
 
 
 
-class Banco {
-public:
-    static void adicionarProdutoExistente();
-    static void adicionarProdutoNovo();
-    static void conferirEstoque();
-    static void removerProduto();
-    static void alterarDadosProduto();
+    class Banco {
+    public:
+        static void adicionarProdutoExistente();
+        static void adicionarProdutoNovo();
+        static void conferirEstoque();
+        static void removerProduto();
+        static void alterarDadosProduto();
 
-    static void adicionarVeiculo();
-    static void conferirVeiculoCadastrado();
-    static void removerVeiculo();
-    static void modificarDadosVeiculo();
+        static void adicionarVeiculo();
+        static void conferirVeiculoCadastrado();
+        static void removerVeiculo();
+        static void modificarDadosVeiculo();
 
-    static void adicionarFuncionario();
-    static void conferirFuncionarioCadastrado();
-    static void removerFuncionario();
-    static void alterarFuncionario();
+        static void adicionarFuncionario();
+        static void conferirFuncionarioCadastrado();
+        static void removerFuncionario();
+        static void alterarFuncionario();
 
-    static void adicionarManutencao();
-    static void conferirManutencao();
-    static void removerRegistroManutencao();
-    static void alterarManutencao();
-};
+        static void adicionarManutencao();
+        static void conferirManutencao();
+        static void removerRegistroManutencao();
+        static void alterarManutencao();
+    };
 
 
 

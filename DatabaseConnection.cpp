@@ -1,5 +1,6 @@
 #include "DatabaseConnection.h"
 #include <iostream>
+#include <iomanip>
 
 // Construtor: inicializa os membros da classe
 // path: caminho do arquivo do banco de dados
@@ -65,6 +66,81 @@ bool DatabaseConnection::executeQuery(const std::string& query) {
     }
     return true;
 }
+
+// Static callback function for SELECT queries
+int DatabaseConnection::callback_select(void* data, int argc, char** argv, char** azColName) {
+    // Print column headers if this is the first row
+    static bool printHeaders = true;
+    if (printHeaders) {
+        for (int i = 0; i < argc; i++) {
+            std::cout << std::left << std::setw(20) << azColName[i];
+        }
+        std::cout << std::endl;
+        printHeaders = false;
+    }
+
+    // Print row data
+    for (int i = 0; i < argc; i++) {
+        std::cout << std::left << std::setw(20) << (argv[i] ? argv[i] : "NULL");
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+bool DatabaseConnection::executeSelectQuery(const std::string& query) {
+    // Verifica se existe uma conexão ativa
+    if (!isConnected || db == nullptr) {
+        std::cerr << "Erro: Não há conexão ativa com o banco de dados!" << std::endl;
+        return false;
+    }
+
+    // Ponteiro para mensagem de erro
+    char* errorMessage = nullptr;
+
+    // Executa a query SELECT
+    int result = sqlite3_exec(db, query.c_str(), callback_select, nullptr, &errorMessage);
+
+    // Verifica se houve erro na execução
+    if (result != SQLITE_OK) {
+        std::cerr << "Erro na execução da query: "
+                  << (errorMessage ? errorMessage : "Erro desconhecido") << std::endl;
+        // Libera memória da mensagem de erro se existir
+        if (errorMessage) {
+            sqlite3_free(errorMessage);
+        }
+        return false;
+    }
+    return true;
+}
+
+static std::string retrievedValue;
+
+int DatabaseConnection::callback_getid(void* data, int argc, char** argv, char** azColName) {
+    // Store the first column value
+    if (argc > 0 && argv[0]) {
+        retrievedValue = argv[0];
+    }
+    return 0;
+}
+
+bool DatabaseConnection::getFirstColumnValue(const std::string& query, std::string& result) {
+    retrievedValue.clear();
+
+    char* errorMessage = nullptr;
+    int queryResult = sqlite3_exec(db, query.c_str(), callback_getid, nullptr, &errorMessage);
+
+    if (queryResult != SQLITE_OK) {
+        std::cerr << "Erro na execução da query: "
+                  << (errorMessage ? errorMessage : "Erro desconhecido") << std::endl;
+        if (errorMessage) sqlite3_free(errorMessage);
+        return false;
+    }
+
+    result = retrievedValue;
+    return !retrievedValue.empty();
+}
+
 
 // Destrutor: limpa recursos quando o objeto é destruído
 DatabaseConnection::~DatabaseConnection() {

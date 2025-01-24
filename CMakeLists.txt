@@ -33,4 +33,6 @@ add_executable(ProjetoFinal main.cpp
         KeyboardInput.cpp
         KeyboardInput.h
         Interface.cpp
-        Interface.h)
+        Interface.h
+        Banco.h
+        Banco.cpp)
