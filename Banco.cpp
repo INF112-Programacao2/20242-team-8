@@ -132,5 +132,21 @@ void Banco::adicionarProdutoExistente() {
     }
 }
 
+void Banco::conferirEstoque(){
 
+    if (conectaBD()) {
 
+        //chama select para mostrar todos os produtos
+        std::string select = "SELECT PRODUTO.IDPRODUTO as ID, TIPOPRODUTO.nome as Nome_do_Produto,  MARCA.nome as Nome_da_Marca, PRODUTO.quantidade as Quantidade, PRODUTO.numero as Numero_do_Produto from MARCA inner join PRODUTO on MARCA.IDMARCA = PRODUTO.ID_MARCA inner join TIPOPRODUTO on PRODUTO.ID_TIPOPRODUTO = TIPOPRODUTO.IDTIPOPRODUTO";
+        if(!db.executeSelectQuery(select)) {
+                std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+        }
+        std::cout.flush();
+
+    }
+    else {
+        std::cerr << "Falha ao conectar ao banco de dados!" << std::endl;
+        exit(1);
+    }
+
+}
