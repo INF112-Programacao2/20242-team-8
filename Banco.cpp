@@ -181,3 +181,103 @@ void Banco::removerProduto() {
     }
 }
 
+void Banco::alterarDadosProduto() {
+    if (conectaBD()) {
+        std::string select = "SELECT PRODUTO.IDPRODUTO as ID, TIPOPRODUTO.nome as Nome_do_Produto,  MARCA.nome as Nome_da_Marca, PRODUTO.quantidade as Quantidade, PRODUTO.numero as Numero_do_Produto, TIPOPRODUTO.tipo as Tipo from MARCA inner join PRODUTO on MARCA.IDMARCA = PRODUTO.ID_MARCA inner join TIPOPRODUTO on PRODUTO.ID_TIPOPRODUTO = TIPOPRODUTO.IDTIPOPRODUTO";
+        if(!db.executeSelectQuery(select)) {
+            std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+        }
+        std::string idProduto;
+        std::cout << std::endl;
+        std::cout << "Qual o ID do produto que deseja alterar? \n";
+        std::cout << "-> ";
+        std::cin >> idProduto;
+        std::cout << "PRODUTO SELCIONADO: \n";
+        std::string select1 = "SELECT PRODUTO.IDPRODUTO as ID, TIPOPRODUTO.nome as Nome_do_Produto,  MARCA.nome as Nome_da_Marca, PRODUTO.quantidade as Quantidade, PRODUTO.numero as Numero_do_Produto, TIPOPRODUTO.tipo as Tipo from MARCA inner join PRODUTO on MARCA.IDMARCA = PRODUTO.ID_MARCA inner join TIPOPRODUTO on PRODUTO.ID_TIPOPRODUTO = TIPOPRODUTO.IDTIPOPRODUTO where IDPRODUTO = " + idProduto + ";";
+        std::cout << std::endl;
+        int opcao;
+        std::cout << "Qual informação deseja trocar:\n";
+        std::cout << "O que deseja alterar? :\n";
+        std::cout << "(1) NOME DO PRODUTO\n(2) QUANTIDADE\n(3) NUMERO DO PRODUTO\n(4) TIPO DO PRODUTO\n";
+        std::cout << "-> ";
+        std::cin >> opcao;
+        if (opcao==1) {
+            std::string ID_TIPOPRODUTO;
+            std::string querryID_TIPOPRODUTO = "select PRODUTO.ID_TIPOPRODUTO from PRODUTO where IDPRODUTO = " + idProduto + ";";
+            db.getFirstColumnValue(querryID_TIPOPRODUTO, ID_TIPOPRODUTO);
+            std::string nomeNovo;
+            std::cout << "Digite o novo nome do produto: \n";
+            std::cout << "-> ";
+            std::cin >> nomeNovo;
+            std::string querry = "update TIPOPRODUTO set nome = '" + nomeNovo + "' where IDTIPOPRODUTO = " + ID_TIPOPRODUTO + ";";
+            if (!db.executeQuery(querry)) {
+                std::cerr << "Falha ao alterar dados do produto!" << std::endl;
+                return;
+            }
+            else {
+                std::cout << std::endl;
+                std::cout << "Produto alterado com sucesso!\n";
+            }
+        }
+        else if (opcao==2) {
+            std::string qtd;
+            std::cout << "Digite a nova quantidade: \n";
+            std::cout << "-> ";
+            std::cin >> qtd;
+            std::string querry1 = "update PRODUTO set quantidade = " + qtd + " where IDPRODUTO = " + idProduto + ";";
+            if (!db.executeQuery(querry1)) {
+                std::cerr << "Falha ao alterar dados do produto!" << std::endl;
+                return;
+            }
+            else {
+                std::cout << std::endl;
+                std::cout << "Produto alterado com sucesso!\n";
+            }
+        }
+        else if (opcao==3) {
+            std::string num;
+            std::cout << "Digite o novo numero: \n";
+            std::cout << "-> ";
+            std::cin >> num;
+            std::string querry2 = "update PRODUTO set numero = '" + num + "' where IDPRODUTO = " + idProduto + ";";
+            if (!db.executeQuery(querry2)) {
+                std::cerr << "Falha ao alterar dados do produto!" << std::endl;
+                return;
+            }
+            else {
+                std::cout << std::endl;
+                std::cout << "Produto alterado com sucesso!\n";
+            }
+        }
+        else if (opcao==4) {
+            std::string ID_TIPOPRODUTO1;
+            std::string querryID_TIPOPRODUTO1 = "select PRODUTO.ID_TIPOPRODUTO from PRODUTO where IDPRODUTO = " + idProduto + ";";
+            db.getFirstColumnValue(querryID_TIPOPRODUTO1, ID_TIPOPRODUTO1);
+            std::string novoTipo;
+            std::cout << "Digite o novo tipo do produto: \n";
+            std::cout << "(1) PEÇA\n(2) FLUIDO\n";
+            int opcao1;
+            std::cout << "-> ";
+            std::cin >> opcao1;
+            if (opcao1 == 1) {
+                novoTipo = "'Peça'";
+            }
+            else if (opcao1 == 2) {
+                novoTipo = "'Fluido'";
+            }
+            std::string querry3 = "update TIPOPRODUTO set tipo = " + novoTipo + " where IDTIPOPRODUTO = " + ID_TIPOPRODUTO1 + ";";
+            if (!db.executeQuery(querry3)) {
+                std::cerr << "Falha ao alterar dados do produto!" << std::endl;
+                return;
+            }
+            else {
+                std::cout << std::endl;
+                std::cout << "Produto alterado com sucesso!\n";
+            }
+        }
+    }
+    else {
+            std::cerr << "Falha ao conectar ao banco de dados!" << std::endl;
+            exit(1);
+    }
+}
