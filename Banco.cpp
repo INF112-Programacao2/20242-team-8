@@ -132,5 +132,52 @@ void Banco::adicionarProdutoExistente() {
     }
 }
 
+void Banco::conferirEstoque(){
 
+    if (conectaBD()) {
+
+        //chama select para mostrar todos os produtos
+        std::string select = "SELECT PRODUTO.IDPRODUTO as ID, TIPOPRODUTO.nome as Nome_do_Produto,  MARCA.nome as Nome_da_Marca, PRODUTO.quantidade as Quantidade, PRODUTO.numero as Numero_do_Produto from MARCA inner join PRODUTO on MARCA.IDMARCA = PRODUTO.ID_MARCA inner join TIPOPRODUTO on PRODUTO.ID_TIPOPRODUTO = TIPOPRODUTO.IDTIPOPRODUTO";
+        if(!db.executeSelectQuery(select)) {
+                std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+        }
+        std::cout.flush();
+
+    }
+    else {
+        std::cerr << "Falha ao conectar ao banco de dados!" << std::endl;
+        exit(1);
+    }
+
+}
+
+void Banco::removerProduto() {
+    if (conectaBD()) {
+        std::string select = "SELECT PRODUTO.IDPRODUTO as ID, TIPOPRODUTO.nome as Nome_do_Produto,  MARCA.nome as Nome_da_Marca, PRODUTO.quantidade as Quantidade, PRODUTO.numero as Numero_do_Produto from MARCA inner join PRODUTO on MARCA.IDMARCA = PRODUTO.ID_MARCA inner join TIPOPRODUTO on PRODUTO.ID_TIPOPRODUTO = TIPOPRODUTO.IDTIPOPRODUTO";
+        if(!db.executeSelectQuery(select)) {
+            std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+        }
+        std::string productID, ID_TIPOPRODUTO;
+        std::cout.flush();
+        std::cout << std::endl;
+        std::cout << "DIGITE O NUMERO DO ID DO PRODUTO A SER REMOVIDO: " << std::endl;
+        std::cout << "-> ";
+        std::cin >> productID;
+        std::string querryID_TIPOPRODUTO = "select PRODUTO.ID_TIPOPRODUTO from PRODUTO where IDPRODUTO = " + productID + ";";
+        db.getFirstColumnValue(querryID_TIPOPRODUTO, ID_TIPOPRODUTO);
+        std::string remove1 = "DELETE FROM PRODUTO WHERE IDPRODUTO = " + productID + ";";
+        std::string remove2 = "DELETE FROM TIPOPRODUTO WHERE IDTIPOPRODUTO = " + ID_TIPOPRODUTO + ";";
+        if(!db.executeSelectQuery(remove1) && !db.executeSelectQuery(remove2)) {
+            std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+        }
+        else {
+            std::cout << std::endl;
+            std::cout << "Produto removido com sucesso!\n";
+        }
+    }
+    else {
+        std::cerr << "Falha ao conectar ao banco de dados!" << std::endl;
+        exit(1);
+    }
+}
 

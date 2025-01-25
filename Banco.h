@@ -13,7 +13,7 @@
         static void adicionarProdutoNovo();
         static void conferirEstoque();
         static void removerProduto();
-        static void alterarDadosProduto();
+        static void alterarDadosProduto(); //modificar quantidade
 
         static void adicionarVeiculo();
         static void conferirVeiculoCadastrado();
