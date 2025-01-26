@@ -728,4 +728,49 @@ void Banco::conferirManutencao() {
     }
 }
 
+void Banco::removerRegistroManutencao() {
+    if (conectaBD()) {
+        std::string  querry= "select MANUTENCAO.IDMANUTENCAO as 'ID DA MANUTENCAO', MANUTENCAO.dataManutencao as 'DATA DA MANUTENÇÃO' from MANUTENCAO;";
+        if(!db.executeSelectQuery(querry)) {
+            std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+        }
+        std::cout << std::endl;
+        std::cout << "Qual o ID referente à data da manutençao que deseja apagar?\n-> ";
+        std::string idManutencao;
+        std::cin >> idManutencao;
+        std::string querry1 = "delete from MANUTENCAO where IDMANUTENCAO = " + idManutencao + ";";
+        std::string querry2 = "delete from MENSAGEM where ID_MANUTENCAO = " + idManutencao + ";";
+        if (!db.executeQuery(querry1)) {
+            std::cerr << "Falha ao remover manutençao!" << std::endl;
+            return;
+        }
+        else {
+            std::cout << "Manutençao removida com sucesso! \n";
+        }
+        if (!db.executeSelectQuery(querry2)) {
+            std::cerr << "Falha ao remover mensagem!" << std::endl;
+            return;
+        }
+        else {
+            std::cout << "Mensagem removida com sucesso! \n";
+        }
+    }
+    else {
+        std::cerr << "Falha ao conectar ao banco de dados!" << std::endl;
+        exit(1);
+    }
+}
+
+void Banco::alterarManutencao() {
+    if (conectaBD()) {
+        std::cout << "Escolha uma opção: \n";
+    }
+    else {
+        std::cerr << "Falha ao conectar ao banco de dados!" << std::endl;
+        exit(1);
+    }
+}
+
+
+
 
