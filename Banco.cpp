@@ -186,7 +186,8 @@ void Banco::removerProduto() {
         db.getFirstColumnValue(querryID_TIPOPRODUTO, ID_TIPOPRODUTO);
         std::string remove1 = "DELETE FROM PRODUTO WHERE IDPRODUTO = " + productID + ";";
         std::string remove2 = "DELETE FROM TIPOPRODUTO WHERE IDTIPOPRODUTO = " + ID_TIPOPRODUTO + ";";
-        if(!db.executeSelectQuery(remove1) && !db.executeSelectQuery(remove2)) {
+        std::string remove3 = "DELETE FROM REGISTRO WHERE ID_PRODUTO = " + productID + ";";
+        if(!db.executeSelectQuery(remove1) && !db.executeSelectQuery(remove2) && !db.executeSelectQuery(remove3)) {
             std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
         }
         else {
@@ -661,25 +662,14 @@ void Banco::adicionarManutencao() {
         std::cout << "-> ";
         std::cin >> idVeiculo;
         std::cout << std::endl;
-        std::string select1 = "SELECT PRODUTO.IDPRODUTO as ID_PRODUTO, TIPOPRODUTO.nome as NOME_TIPO_PRODUTO, MARCA.nome as NOME_MARCA, TIPOPRODUTO.tipo as TIPO, PRODUTO.numero as NUMERO_PRODUTO, PRODUTO.quantidade as QUANTIDADE_PRODUTO, REGISTRO.dataCompra as DATA_DE_COMPRA, REGISTRO.localCompra as LOCAL_DE_COMPRA from PRODUTO inner join main.MARCA on MARCA.IDMARCA = PRODUTO.ID_MARCA inner join main.REGISTRO on PRODUTO.IDPRODUTO = REGISTRO.ID_PRODUTO inner join main.TIPOPRODUTO on TIPOPRODUTO.IDTIPOPRODUTO = PRODUTO.ID_TIPOPRODUTO;";
-        if (!db.executeSelectQuery(select1)) {
-            std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
-        }
-        std::cout << std::endl;
-        std::string idProduto;
-        std::cout << "Digite o ID do produto a ser usado: \n";
-        std::cout << "-> ";
-        std::cin >> idProduto;
-        std::string ID_REGISTRO;
-        std::string querryID_REGISTRO = "select ID_TIPOPRODUTO from PRODUTO where IDPRODUTO = " + idProduto + ";";
-        db.getFirstColumnValue(querryID_REGISTRO, ID_REGISTRO);
-        std::cout << std::endl;
         std::cout << "Digite a data da manutençao: \n";
         std::cout << "-> ";
         std::string dataManutenao;
         std::cin.ignore();
         std::getline(std::cin, dataManutenao);
-        std::string querry = "insert into MANUTENCAO (IDMANUTENCAO, dataManutencao, ID_CARRO, ID_PRODUTO, ID_REGISTRO) values (NULL, '" + dataManutenao + "', " + idVeiculo + ", " + idProduto + ", " + ID_REGISTRO + ");";
+
+
+        std::string querry = "insert into MANUTENCAO (IDMANUTENCAO, dataManutencao, ID_CARRO) values (NULL, '" + dataManutenao + "', " + idVeiculo + ");";
         if (!db.executeQuery(querry)) {
             std::cerr << "Falha ao registrar manutencao!" << std::endl;
             return;
@@ -688,15 +678,6 @@ void Banco::adicionarManutencao() {
         std::string querryID_MANUTENCAO = "select IDMANUTENCAO from MANUTENCAO where ID_CARRO = " + idVeiculo + ";";
         db.getFirstColumnValue(querryID_MANUTENCAO, ID_MANUTENCAO);
         std::cout << std::endl;
-        int opcao;
-        std::cout << "A quantidade no estoque do produto sera acrescida ou diminuida?\n(1) ACRESCIDA\n(2) DIMINUIDA\n-> ";
-        std::cin >> opcao;
-        if (opcao == 1) {
-
-        }
-        else if (opcao == 2) {
-
-        }
         std::string mensagem;
         std::cout << "Digite uma mensagem sobre a manutençao realizada: \n-> ";
         std::getline(std::cin, mensagem);

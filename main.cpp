@@ -41,7 +41,7 @@ int main() {
     //Banco::conferirVeiculoCadastrado();
     //Banco::removerVeiculo();
     //Banco::modificarDadosVeiculo();
-    Banco::adicionarManutencao();
+        Banco::adicionarManutencao();
     //Produto p("Jorge e matheus", 42, "Cristiano Araujo", "220222", 75.4);
 
     /*
