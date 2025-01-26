@@ -44,6 +44,7 @@ int main() {
     //Banco::adicionarManutencao();
     //Banco::conferirManutencao();
     //Banco::removerRegistroManutencao();
+    Banco::alterarManutencao();
     //Produto p("Jorge e matheus", 42, "Cristiano Araujo", "220222", 75.4);
 
     /*

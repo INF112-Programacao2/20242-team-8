@@ -778,6 +778,7 @@ void Banco::alterarManutencao() {
             std::cout << std::endl;
             std::cout << "Digite a nova data da manutencao:\n-> ";
             std::string novaData;
+            std::cin.ignore();
             std::getline(std::cin, novaData);
             std::string q1 = "update MANUTENCAO set dataManutencao = '" + novaData + "' where IDMANUTENCAO = " + idManutencao + ";";
             if (!db.executeQuery(q1)) {
@@ -800,6 +801,7 @@ void Banco::alterarManutencao() {
             std::cout << std::endl;
             std::cout << "Digite a nova mensagem: \n";
             std::string mensagem;
+            std::cin.ignore();
             std::getline(std::cin, mensagem);
             std::string q1 = "update MENSAGEM set conteudo = '" + mensagem + "' where ID_MANUTENCAO = " + idManutencao + ";";
             if (!db.executeQuery(q1)) {
