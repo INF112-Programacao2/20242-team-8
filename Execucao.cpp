@@ -1,5 +1,6 @@
 #include "Execucao.h"
 #include <iostream>
+#include "Banco.h"
 
 void Execucao::telaInicial(){
     int valor;
@@ -64,23 +65,23 @@ void Execucao::telaAdicionarProduto(){
 }
 
 void Execucao::telaAdicionarNovoProduto(){
-
+    Banco::adicionarProdutoNovo();
 };
 
 void Execucao::telaAdicionarProdutoExistente(){
-
+    Banco::adicionarProdutoExistente();
 };
 
 void Execucao::telaConferirEstoque(){
-
+    Banco::conferirEstoque();
 };
 
 void Execucao::telaRemoverProduto(){
-
+    Banco::removerProduto();
 };
 
 void Execucao::telaAlterarDadosProduto(){
-
+    Banco::alterarDadosProduto();
 };
 
 //-------------------------------------------------
@@ -105,11 +106,11 @@ void Execucao::telaVeiculo(){
 };
 
 void Execucao::telaAdicionarVeiculo(){
-
+    Banco::adicionarVeiculo();
 };
 
 void Execucao::telaConferirVeiculosCadastrados(){
-
+    Banco::conferirVeiculoCadastrado();
 };
 
 void Execucao::telaModificarVeiculos(){
@@ -129,11 +130,11 @@ int valor;
 };
 
 void Execucao::telaAlterarVeiculos(){
-
+    Banco::modificarDadosVeiculo();
 };
 
 void Execucao::telaExcluirVeiculo(){
-
+    Banco::removerVeiculo();
 };
 
 //-------------------------------------------------
@@ -158,11 +159,11 @@ void Execucao::telaFuncionario(){
 };
 
 void Execucao::telaAdicionarFuncionario(){
-
+    Banco::adicionarFuncionario();
 };
 
 void Execucao::telaConferirFuncionarios(){
-
+    Banco::conferirFuncionarioCadastrado();
 };
 
 void Execucao::telaModificarFuncionarios(){
@@ -182,11 +183,11 @@ void Execucao::telaModificarFuncionarios(){
 };
 
 void Execucao::telaAlterarFuncionario(){
-
+    Banco::alterarFuncionario();
 };
 
 void Execucao::telaDeletarFuncionario(){
-
+    Banco::removerFuncionario();
 };
 
 //-----------------------------------------------
@@ -211,11 +212,11 @@ void Execucao::telaManutencao(){
 };
 
 void Execucao::telaAdicionarManutencao() {
-
+    Banco::adicionarManutencao();
 };
 
 void Execucao::telaConferirManutencoes() {
-
+    Banco::conferirManutencao();
 };
 
 void Execucao::telaModificarManutencao() {
@@ -235,9 +236,9 @@ void Execucao::telaModificarManutencao() {
 };
 
 void Execucao::telaAlterarManutencao() {
-
+    Banco::alterarManutencao();
 };
 
 void Execucao::telaDeletarManutencao() {
-
+    Banco::removerRegistroManutencao();
 };

@@ -44,7 +44,7 @@ int main() {
     //Banco::adicionarManutencao();
     //Banco::conferirManutencao();
     //Banco::removerRegistroManutencao();
-    Banco::alterarManutencao();
+    //Banco::alterarManutencao();
     //Produto p("Jorge e matheus", 42, "Cristiano Araujo", "220222", 75.4);
 
     /*
@@ -96,5 +96,9 @@ int main() {
 
     detectarTeclas();
 */
+    //const std::string message = "(1) - alterar dados do veículo: ";
+
+    // Chama a função que converte o texto em fala
+    //TextToVoice::speak(message);
     return 0;
 }

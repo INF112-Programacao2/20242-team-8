@@ -1,5 +1,9 @@
 #include <iostream>
 #include "Interface.h"
+#include "Banco.h"
+
+#ifndef EXECUCAO_H
+#define EXECUCAO_H
 
 class Execucao{
 
@@ -47,3 +51,5 @@ class Execucao{
         
 
 };
+
+#endif //EXECUCAO_H
