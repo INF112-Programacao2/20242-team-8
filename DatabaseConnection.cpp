@@ -67,9 +67,8 @@ bool DatabaseConnection::executeQuery(const std::string& query) {
     return true;
 }
 
-// Static callback function for SELECT queries
 int DatabaseConnection::callback_select(void* data, int argc, char** argv, char** azColName) {
-    // Print column headers if this is the first row
+    // Imprime os cabeçalhos das colunas, se esta for a primeira linha
     static bool printHeaders = true;
     if (printHeaders) {
         for (int i = 0; i < argc; i++) {
@@ -79,7 +78,7 @@ int DatabaseConnection::callback_select(void* data, int argc, char** argv, char*
         printHeaders = false;
     }
 
-    // Print row data
+    // Imprime os dados da linha
     for (int i = 0; i < argc; i++) {
         std::cout << std::left << std::setw(20) << (argv[i] ? argv[i] : "NULL");
     }
@@ -117,7 +116,7 @@ bool DatabaseConnection::executeSelectQuery(const std::string& query) {
 static std::string retrievedValue;
 
 int DatabaseConnection::callback_getid(void* data, int argc, char** argv, char** azColName) {
-    // Store the first column value
+    // guarda o valor da primeira coluna
     if (argc > 0 && argv[0]) {
         retrievedValue = argv[0];
     }
