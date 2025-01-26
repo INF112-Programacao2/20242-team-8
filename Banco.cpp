@@ -578,7 +578,7 @@ void Banco::modificarDadosVeiculo() {
         }
         std::string idVeiculo;
         std::cout << std::endl;
-        std::cout << "Qual o ID do produto que deseja alterar? \n";
+        std::cout << "Qual o ID do veiculo que deseja alterar? \n";
         std::cout << "-> ";
         std::cin >> idVeiculo;
         std::cout << "VEICULO SELCIONADO: \n";
@@ -763,7 +763,82 @@ void Banco::removerRegistroManutencao() {
 
 void Banco::alterarManutencao() {
     if (conectaBD()) {
-        std::cout << "Escolha uma opção: \n";
+        std::cout << "Escolha uma opção: \n(1)ALTERAR DATA DA MANUTENÇAO\n(2)ALTERAR MENSAGEM REFERENTE\n(3)ALTERAR VEICULO REFERENTE\n-> ";
+        int opcao;
+        std::cin >> opcao;
+        if (opcao==1) {
+            std::string  querry= "select MANUTENCAO.IDMANUTENCAO as 'ID DA MANUTENCAO', MANUTENCAO.dataManutencao as 'DATA DA MANUTENÇÃO' from MANUTENCAO;";
+            if(!db.executeSelectQuery(querry)) {
+                std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+            }
+            std::cout << std::endl;
+            std::cout << "Qual o ID referente à data da manutençao que deseja alterar?\n-> ";
+            std::string idManutencao;
+            std::cin >> idManutencao;
+            std::cout << std::endl;
+            std::cout << "Digite a nova data da manutencao:\n-> ";
+            std::string novaData;
+            std::getline(std::cin, novaData);
+            std::string q1 = "update MANUTENCAO set dataManutencao = '" + novaData + "' where IDMANUTENCAO = " + idManutencao + ";";
+            if (!db.executeQuery(q1)) {
+                std::cerr << "Falha ao alterar data da manutençao!" << std::endl;
+                return;
+            }
+            else {
+                std::cout << "Manutençao alterada com sucesso! \n";
+            }
+        }
+        else if (opcao==2) {
+            std::string  querry= "select MANUTENCAO.IDMANUTENCAO as 'ID DA MANUTENCAO', MANUTENCAO.dataManutencao as 'DATA DA MANUTENÇÃO' from MANUTENCAO;";
+            if(!db.executeSelectQuery(querry)) {
+                std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+            }
+            std::cout << std::endl;
+            std::cout << "Qual o ID referente à data da manutençao que deseja alterar?\n-> ";
+            std::string idManutencao;
+            std::cin >> idManutencao;
+            std::cout << std::endl;
+            std::cout << "Digite a nova mensagem: \n";
+            std::string mensagem;
+            std::getline(std::cin, mensagem);
+            std::string q1 = "update MENSAGEM set conteudo = '" + mensagem + "' where ID_MANUTENCAO = " + idManutencao + ";";
+            if (!db.executeQuery(q1)) {
+                std::cerr << "Falha ao alterar mensagem da manutençao!" << std::endl;
+                return;
+            }
+            else {
+                std::cout << "Mensagem alterada com sucesso!";
+            }
+        }
+        else if (opcao==3) {
+            std::string  querry= "select MANUTENCAO.IDMANUTENCAO as 'ID DA MANUTENCAO', MANUTENCAO.dataManutencao as 'DATA DA MANUTENÇÃO' from MANUTENCAO;";
+            if(!db.executeSelectQuery(querry)) {
+                std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+            }
+            std::cout << std::endl;
+            std::cout << "Qual o ID referente à data da manutençao que deseja alterar?\n-> ";
+            std::string idManutencao;
+            std::cin >> idManutencao;
+            std::cout << std::endl;
+            std::string select = "SELECT CARRO.IDCARRO AS ID_VEICULO, TIPOCARRO.nome AS NOME_VEICULO, MARCA.nome AS MARCA_VEICULO, CARRO.placa AS PLACA_VEICULO, TIPOCARRO.funcao AS FUNCAO_VEICULO FROM CARRO INNER JOIN TIPOCARRO on TIPOCARRO.IDTIPOCARRO = CARRO.ID_TIPOCARRO inner join MARCA on MARCA.IDMARCA = TIPOCARRO.ID_MARCA;";
+            if(!db.executeSelectQuery(select)) {
+                std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+            }
+            std::cout << std::endl;
+            std::string idVeiculo;
+            std::cout << "Qual o ID do novo veículo a ser escolhido? \n";
+            std::cout << "-> ";
+            std::cin >> idVeiculo;
+            std::cout << std::endl;
+            std::string s = "update MANUTENCAO set ID_CARRO = " + idVeiculo + " where IDMANUTENCAO = " + idManutencao + ";";
+            if (!db.executeQuery(s)) {
+                std::cerr << "Falha ao alterar veiculo da manutençao!" << std::endl;
+                return;
+            }
+            else {
+                std::cout << "veiculo alterado com sucesso!";
+            }
+        }
     }
     else {
         std::cerr << "Falha ao conectar ao banco de dados!" << std::endl;
