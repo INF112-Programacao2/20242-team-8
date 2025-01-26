@@ -36,11 +36,12 @@ int main() {
     //Banco::adicionarProdutoExistente();
     //Banco::conferirEstoque();
     //Banco::removerProduto();
-    Banco::alterarDadosProduto();
+    //Banco::alterarDadosProduto();
     //Banco::adicionarVeiculo();
     //Banco::conferirVeiculoCadastrado();
     //Banco::removerVeiculo();
     //Banco::modificarDadosVeiculo();
+    Banco::adicionarManutencao();
     //Produto p("Jorge e matheus", 42, "Cristiano Araujo", "220222", 75.4);
 
     /*
