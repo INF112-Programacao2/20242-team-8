@@ -14,7 +14,6 @@ DatabaseConnection::DatabaseConnection(const std::string& path) :
 bool DatabaseConnection::connect() {
     // Verifica se já existe uma conexão ativa
     if (isConnected) {
-        std::cout << "Já existe uma conexão ativa!" << std::endl;
         return true;
     }
 

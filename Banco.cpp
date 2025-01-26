@@ -696,3 +696,36 @@ void Banco::adicionarManutencao() {
     }
 }
 
+void Banco::conferirManutencao() {
+    if (conectaBD()) {
+        std::string  querry= "select MANUTENCAO.IDMANUTENCAO as 'ID DA MANUTENCAO', MANUTENCAO.dataManutencao as 'DATA DA MANUTENÇÃO' from MANUTENCAO;";
+        if(!db.executeSelectQuery(querry)) {
+            std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+        }
+        std::cout << std::endl;
+        std::cout << "Qual o ID referente à data da manutençao desejada?\n-> ";
+        std::string idManutencao;
+        std::cin >> idManutencao;
+        std::string ID_CARRO;
+        std::string querryID_CARRO = "select ID_CARRO from MANUTENCAO where IDMANUTENCAO = " + idManutencao + ";";
+        db.getFirstColumnValue(querryID_CARRO, ID_CARRO);
+        std::cout << std::endl;
+        std::cout << "Mensagem referente: ";
+        std::cout << std::endl;
+        std::cout << "Placa do veiculo referente: ";
+        std::string querry3= "select placa as PLACA_DO_VEICULO from CARRO where IDCARRO = " + ID_CARRO + ";";
+        if(!db.executeSelectQuery(querry3)) {
+            std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+        }
+        std::string querry2 = "select MENSAGEM.conteudo from MENSAGEM where ID_MANUTENCAO = " + idManutencao + ";";
+        if(!db.executeSelectQuery(querry2)) {
+            std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
+        }
+    }
+    else {
+        std::cerr << "Falha ao conectar ao banco de dados!" << std::endl;
+        exit(1);
+    }
+}
+
+
