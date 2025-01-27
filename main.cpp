@@ -1,12 +1,12 @@
 #include <chrono>
 #include <iostream>
 #include <thread>
-
 #include "DatabaseConnection.h"
 #include "KeyboardInput.h"
 #include "Produto.h"
 #include "TextToVoice.h"
 #include "Banco.h"
+#include "Execucao.h"
 #include "Acessibilidade.h"
 
 /*
@@ -43,9 +43,10 @@ int main() {
     if (acessbilidade == 'n') {
         resp = false;
     }
+    std::cin.ignore();
 
     Acessibilidade::setAciona(resp);
-    Banco::adicionarProdutoNovo();
+    Execucao::telaInicial();
     //Banco::adicionarProdutoExistente();
     //Banco::conferirEstoque();
     //Banco::removerProduto();

@@ -16,10 +16,11 @@ int Interface::exibirMenuPrincipal(){
     std::cout << "3- FUNCIONARIOS "<< std::endl;
     std::cout << "4- MANUTENCAO " << std::endl;
     std::cout << "5- SAIR " << std::endl;
+    std::cout << "-> ";
 
     int valor;
     bool testeVariavel = false;
-    do{ 
+    do{
         testeVariavel = false;
         try{
         std::cin >> valor;
@@ -45,6 +46,8 @@ int Interface::exibirSubcategoriaProduto(){
     std::cout << "3- REMOVER PRODUTO "<< std::endl;
     std::cout << "4- ALTERAR DADOS " << std::endl;
     std::cout << "5- SAIR " << std::endl;
+    std::cout << "-> ";
+
     
     int valor;
     bool testeVariavel = false;
@@ -73,6 +76,8 @@ int Interface::exibirSubcategoriaVeiculos(){
     std::cout << "2- CONFERIR VEICULOS CADASTRADOS " << std::endl;
     std::cout << "3- MODIFICAR VEICULO "<< std::endl;
     std::cout << "4- SAIR " << std::endl;
+    std::cout << "-> ";
+
     
     int valor;
     bool testeVariavel = false;
@@ -101,6 +106,8 @@ int Interface::exibirSubcategoriaFuncionarios(){
     std::cout << "2- CONFERIR FUNCIONARIOS CADASTRADOS " << std::endl;
     std::cout << "3- MODIFICAR FUNCIONARIO "<< std::endl;
     std::cout << "4- SAIR " << std::endl;
+    std::cout << "-> ";
+
     
     int valor;
     bool testeVariavel = false;
@@ -129,6 +136,8 @@ int Interface::exibirSubcategoriaManutencao(){
     std::cout << "2- CONFERIR MANUTENCOES " << std::endl;
     std::cout << "3- MODIFICAR MANUTENCAO "<< std::endl;
     std::cout << "4- SAIR " << std::endl;
+    std::cout << "-> ";
+
     
     int valor;
     bool testeVariavel = false;
@@ -156,6 +165,8 @@ int Interface::subcategoriaAdicionarProduto(){
     std::cout << "1- ADICIONAR NOVO PRODUTO " << std::endl;
     std::cout << "2- ADICIONAR PRODUTO EXISTENTE " << std::endl;
     std::cout << "3- SAIR "<< std::endl;
+    std::cout << "-> ";
+
     
     int valor;
     bool testeVariavel = false;
@@ -183,6 +194,8 @@ int Interface::subcategoriaModificarVeiculo(){
     std::cout << "1- ALTERAR VEICULO " << std::endl;
     std::cout << "2- DELETAR VEICULO " << std::endl;
     std::cout << "3- SAIR "<< std::endl;
+    std::cout << "-> ";
+
     
     int valor;
     bool testeVariavel = false;
@@ -210,6 +223,8 @@ int Interface::subcategoriaModificarFuncionarios(){
     std::cout << "1- ALTERAR FUNCIONARIO " << std::endl;
     std::cout << "2- DELETAR FUNCIONARIO " << std::endl;
     std::cout << "3- SAIR "<< std::endl;
+    std::cout << "-> ";
+
     
     int valor;
     bool testeVariavel = false;
@@ -237,6 +252,8 @@ int Interface::subcategoriaModificarManutencao(){
     std::cout << "1- ALTERAR MANUTENCAO " << std::endl;
     std::cout << "2- DELETAR MANUTENCAO " << std::endl;
     std::cout << "3- SAIR "<< std::endl;
+    std::cout << "-> ";
+
     
     int valor;
     bool testeVariavel = false;

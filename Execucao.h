@@ -13,41 +13,41 @@ class Execucao{
 
     public:
 
-        void telaInicial();
+        static void telaInicial();
         
         //-------------------------------
-        void telaProduto();
+        static void telaProduto();
         
-        void telaAdicionarProduto();
-        void telaAdicionarNovoProduto();
-        void telaAdicionarProdutoExistente();
-        void telaConferirEstoque();
-        void telaRemoverProduto();
-        void telaAlterarDadosProduto();
+        static void telaAdicionarProduto();
+        static void telaAdicionarNovoProduto();
+        static void telaAdicionarProdutoExistente();
+        static void telaConferirEstoque();
+        static void telaRemoverProduto();
+        static void telaAlterarDadosProduto();
 
         //--------------------------------
-        void telaVeiculo();
-        void telaAdicionarVeiculo();
-        void telaConferirVeiculosCadastrados();
-        void telaModificarVeiculos();
-        void telaAlterarVeiculos();
-        void telaExcluirVeiculo();
+        static void telaVeiculo();
+        static void telaAdicionarVeiculo();
+        static void telaConferirVeiculosCadastrados();
+        static void telaModificarVeiculos();
+        static void telaAlterarVeiculos();
+        static void telaExcluirVeiculo();
 
         //--------------------------------
-        void telaFuncionario();
-        void telaAdicionarFuncionario();
-        void telaConferirFuncionarios();
-        void telaModificarFuncionarios();
-        void telaAlterarFuncionario();
-        void telaDeletarFuncionario();
+        static void telaFuncionario();
+        static void telaAdicionarFuncionario();
+        static void telaConferirFuncionarios();
+        static void telaModificarFuncionarios();
+        static void telaAlterarFuncionario();
+        static void telaDeletarFuncionario();
         
         //-------------------------------
-        void telaManutencao();
-        void telaAdicionarManutencao();
-        void telaConferirManutencoes();
-        void telaModificarManutencao();
-        void telaAlterarManutencao();
-        void telaDeletarManutencao();
+        static void telaManutencao();
+        static void telaAdicionarManutencao();
+        static void telaConferirManutencoes();
+        static void telaModificarManutencao();
+        static void telaAlterarManutencao();
+        static void telaDeletarManutencao();
         
 
 };

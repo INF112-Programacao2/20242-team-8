@@ -24,14 +24,15 @@ void Banco::adicionarProdutoNovo() {
     if (conectaBD()) {
         std::string nomeProduto, nomeMarcaProduto, numeroProduto, dataCompra, localCompra;
         int quantidadeProduto;
-
-
         std::string texto1 = "Insira os seguintes dados: \n";
         std::string texto2 = "Insira o nome do produto: ";
         Acessibilidade::colocaTexto(texto1);
         Acessibilidade::colocaTexto(texto2);
+        std::cin.ignore();
         std::getline(std::cin, nomeProduto);
 
+        std::string texto = "Insira o tipo do produto: \n";
+        Acessibilidade::colocaTexto(texto);
         std::string tipoProduto = Produto::defineTipo();
 
         std::string texto3 = "Insira a quantidade do produto: ";
@@ -125,11 +126,15 @@ void Banco::adicionarProdutoExistente() {
         //
 
         std::string idProduto;
+        std::string texto = "Qual o ID do produto a ser alterado?";
+        Acessibilidade::colocaTexto(texto);
         std::cout << "Qual o ID do produto a ser alterado? \n";
         std::cout << "-> ";
         std::cin >> idProduto;
 
         std::string quantidade;
+        std::string texto1 = "Qual a quantidade a ser adicionada?";
+        Acessibilidade::colocaTexto(texto1);
         std::cout << "Qual a quantidade a ser adicionada? \n";
         std::cout << "-> ";
         std::cin >> quantidade;
@@ -147,7 +152,11 @@ void Banco::adicionarProdutoExistente() {
             return;
         }
         std::cout << std::endl;
+        std::string texto2 = "Qual a quantidade a ser adicionada?";
+        Acessibilidade::colocaTexto(texto2);
         std::cout << "Novos Dados após a alteraçao: \n";
+        std::string texto3 = "Novos Dados após a alteraçao:";
+        Acessibilidade::colocaTexto(texto3);
         std::string select2 = "SELECT PRODUTO.IDPRODUTO as ID_PRODUTO, TIPOPRODUTO.nome as NOME_TIPO_PRODUTO, MARCA.nome as NOME_MARCA, TIPOPRODUTO.tipo as TIPO, PRODUTO.numero as NUMERO_PRODUTO, PRODUTO.quantidade as QUANTIDADE_PRODUTO, REGISTRO.dataCompra as DATA_DE_COMPRA, REGISTRO.localCompra as LOCAL_DE_COMPRA from PRODUTO inner join main.MARCA on MARCA.IDMARCA = PRODUTO.ID_MARCA inner join main.REGISTRO on PRODUTO.IDPRODUTO = REGISTRO.ID_PRODUTO inner join main.TIPOPRODUTO on TIPOPRODUTO.IDTIPOPRODUTO = PRODUTO.ID_TIPOPRODUTO where IDPRODUTO = " + idProduto + ";";
         if (!db.executeSelectQuery(select2)) {
             std::cerr << "Falha ao executar consulta SELECT!" << std::endl;
@@ -188,6 +197,8 @@ void Banco::removerProduto() {
         std::cout.flush();
         std::cout << std::endl;
         std::cout << "DIGITE O NUMERO DO ID DO PRODUTO A SER REMOVIDO: " << std::endl;
+        std::string texto = "DIGITE O NUMERO DO ID DO PRODUTO A SER REMOVIDO:";
+        Acessibilidade::colocaTexto(texto);
         std::cout << "-> ";
         std::cin >> productID;
         std::string querryID_TIPOPRODUTO = "select PRODUTO.ID_TIPOPRODUTO from PRODUTO where IDPRODUTO = " + productID + ";";
@@ -217,6 +228,7 @@ void Banco::alterarDadosProduto() {
         }
         std::string idProduto;
         std::cout << std::endl;
+        std::string texto = "Qual o ID do produto que deseja alterar?";
         std::cout << "Qual o ID do produto que deseja alterar? \n";
         std::cout << "-> ";
         std::cin >> idProduto;
