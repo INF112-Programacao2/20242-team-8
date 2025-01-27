@@ -6,8 +6,16 @@
 #include <iostream>
 #include <string>
 
+std::mutex speakMutex;
+bool isSpeaking = false;
+
 // Função que converte texto em fala usando a API do eSpeak
 void TextToVoice::speak(const std::string& text) {
+    if (isSpeaking) {
+        espeak_Cancel();  // Cancela a execução em andamento
+    }
+
+    isSpeaking = true;
     // Inicializa o eSpeak para reprodução de áudio.
     // Parâmetros:
     // - AUDIO_OUTPUT_PLAYBACK: indica que a saída será reproduzida pelo alto-falante.
@@ -16,6 +24,7 @@ void TextToVoice::speak(const std::string& text) {
     // - 0: opções adicionais (não usamos nenhuma).
     if (espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, NULL, 0) == -1) {
         std::cerr << "Falha ao inicializar o eSpeak." << std::endl;
+        isSpeaking = false;
         return;  // Encerra a função em caso de erro de inicialização
     }
 
@@ -24,6 +33,7 @@ void TextToVoice::speak(const std::string& text) {
     // Retorna EE_OK (0) se a configuração for bem-sucedida.
     if (espeak_SetVoiceByName("pt") != EE_OK) {
         std::cerr << "Falha ao configurar a voz para português do Brasil." << std::endl;
+        isSpeaking = false;
         return;  // Encerra a função em caso de falha ao configurar o idioma
     }
 
@@ -41,4 +51,5 @@ void TextToVoice::speak(const std::string& text) {
 
     // Aguarda até que toda a reprodução do áudio seja concluída antes de continuar.
     espeak_Synchronize();
+    isSpeaking = false;
 }

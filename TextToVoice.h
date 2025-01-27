@@ -8,6 +8,7 @@
 #include <espeak/speak_lib.h>
 #include <iostream>
 #include <string>
+#include <mutex>
 
 class TextToVoice {
 public:

@@ -7,6 +7,7 @@
 #include "Carro.h"
 #include "DatabaseConnection.h"
 #include "Produto.h"
+#include "Acessibilidade.h"
 
 DatabaseConnection db("DATABASE.sqlite");
 
@@ -25,20 +26,25 @@ void Banco::adicionarProdutoNovo() {
         int quantidadeProduto;
 
 
-        std::cout << "Insira os seguintes dados: \n";
-        std::cout << "Insira o nome do produto: ";
+        std::string texto1 = "Insira os seguintes dados: \n";
+        std::string texto2 = "Insira o nome do produto: ";
+        Acessibilidade::colocaTexto(texto1);
+        Acessibilidade::colocaTexto(texto2);
         std::getline(std::cin, nomeProduto);
 
         std::string tipoProduto = Produto::defineTipo();
 
-        std::cout << "Insira a quantidade do produto: ";
+        std::string texto3 = "Insira a quantidade do produto: ";
+        Acessibilidade::colocaTexto(texto3);
         std::cin >> quantidadeProduto;
 
         std::cin.ignore();
-        std::cout << "Insira o nome da marca referente aos veículos compatíveis com o produto: ";
+        std::string texto4 = "Insira o nome da marca referente aos veículos compatíveis com o produto: ";
+        Acessibilidade::colocaTexto(texto4);
         std::getline(std::cin, nomeMarcaProduto);
 
-        std::cout << "Insira o número do produto: ";
+        std::string texto5 = "Insira o número do produto: ";
+        Acessibilidade::colocaTexto(texto5);
         std::getline(std::cin, numeroProduto);
 
         // Se o banco foi conectado, tenta inserir dados
@@ -74,10 +80,12 @@ void Banco::adicionarProdutoNovo() {
             std::cerr << "Falha ao inserir produto!" << std::endl;
         }
 
-        std::cout << "Insira a data da compra (formato: DD/MM/AA) : ";
+        std::string texto6 = "Insira a data da compra (formato: DD/MM/AA) : ";
+        Acessibilidade::colocaTexto(texto6);
         std::getline(std::cin, dataCompra);
 
-        std::cout << "Insira o local da compra: ";
+        std::string texto7 = "Insira o local da compra: ";
+        Acessibilidade::colocaTexto(texto7);
         std::getline(std::cin, localCompra);
 
         std::string idProduto;

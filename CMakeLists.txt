@@ -35,4 +35,6 @@ add_executable(ProjetoFinal main.cpp
         Interface.cpp
         Interface.h
         Banco.h
-        Banco.cpp)
+        Banco.cpp
+        Acessibilidade.h
+        Acessibilidade.cpp)

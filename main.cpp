@@ -7,6 +7,7 @@
 #include "Produto.h"
 #include "TextToVoice.h"
 #include "Banco.h"
+#include "Acessibilidade.h"
 
 /*
 void detectarTeclas() {
@@ -32,7 +33,19 @@ void detectarTeclas() {
 */
 
 int main() {
-    //Banco::adicionarProdutoNovo();
+    char acessbilidade;
+    bool resp=false;
+    std::cout << "Deseja utilizar a acessibilidade de voz (s/n) ?";
+    std::cin >>  acessbilidade;
+    if (acessbilidade == 's') {
+        resp = true;
+    }
+    if (acessbilidade == 'n') {
+        resp = false;
+    }
+
+    Acessibilidade::setAciona(resp);
+    Banco::adicionarProdutoNovo();
     //Banco::adicionarProdutoExistente();
     //Banco::conferirEstoque();
     //Banco::removerProduto();
