@@ -11,8 +11,16 @@
 #include <mutex>
 
 class TextToVoice {
-public:
-    static void speak(const std::string& text);
+    public:
+        static bool initialize();
+        static void cleanup();
+        static bool speak(const std::string& text);
+        static bool isInitialized() { return initialized; }
+
+    private:
+        static bool initialized;
+        static std::mutex speakMutex;
+        static bool isSpeaking;
 };
 
 
