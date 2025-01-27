@@ -5,6 +5,7 @@
 #include "Interface.h"
 #include <exception>
 #include <iostream>
+#include <limits>
 
 int Interface::exibirMenuPrincipal(){
     std::cout << "---BEM VINDO---" << std::endl;
@@ -24,6 +25,11 @@ int Interface::exibirMenuPrincipal(){
         testeVariavel = false;
         try{
         std::cin >> valor;
+            if (std::cin.fail()) {
+                std::cin.clear(); // Limpa o estado de erro de `cin`
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descarta o restante da entrada
+                throw std::invalid_argument("Entrada inválida! Digite um número inteiro.\n");
+            }
             if(valor <=0 || valor > 5){
                 throw std::invalid_argument("Opcao invalida!\n");
             }
@@ -55,6 +61,11 @@ int Interface::exibirSubcategoriaProduto(){
         testeVariavel = false;
         try{
         std::cin >> valor;
+            if (std::cin.fail()) {
+                std::cin.clear(); // Limpa o estado de erro de `cin`
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descarta o restante da entrada
+                throw std::invalid_argument("Entrada inválida! Digite um número inteiro.\n");
+            }
             if(valor <=0 || valor > 5){
                 throw std::invalid_argument("Opcao invalida!\n");
             }
@@ -85,6 +96,11 @@ int Interface::exibirSubcategoriaVeiculos(){
         testeVariavel = false;
         try{
         std::cin >> valor;
+            if (std::cin.fail()) {
+                std::cin.clear(); // Limpa o estado de erro de `cin`
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descarta o restante da entrada
+                throw std::invalid_argument("Entrada inválida! Digite um número inteiro.\n");
+            }
             if(valor <=0 || valor > 4){
                 throw std::invalid_argument("Opcao invalida!\n");
             }
@@ -115,6 +131,11 @@ int Interface::exibirSubcategoriaFuncionarios(){
         testeVariavel = false;
         try{
         std::cin >> valor;
+            if (std::cin.fail()) {
+                std::cin.clear(); // Limpa o estado de erro de `cin`
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descarta o restante da entrada
+                throw std::invalid_argument("Entrada inválida! Digite um número inteiro.\n");
+            }
             if(valor <=0 || valor > 4){
                 throw std::invalid_argument("Opcao invalida!\n");
             }
@@ -145,6 +166,11 @@ int Interface::exibirSubcategoriaManutencao(){
         testeVariavel = false;
         try{
         std::cin >> valor;
+            if (std::cin.fail()) {
+                std::cin.clear(); // Limpa o estado de erro de `cin`
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descarta o restante da entrada
+                throw std::invalid_argument("Entrada inválida! Digite um número inteiro.\n");
+            }
             if(valor <=0 || valor > 4){
                 throw std::invalid_argument("Opcao invalida!\n");
             }
@@ -174,6 +200,11 @@ int Interface::subcategoriaAdicionarProduto(){
         testeVariavel = false;
         try{
         std::cin >> valor;
+            if (std::cin.fail()) {
+                std::cin.clear(); // Limpa o estado de erro de `cin`
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descarta o restante da entrada
+                throw std::invalid_argument("Entrada inválida! Digite um número inteiro.\n");
+            }
             if(valor <=0 || valor > 3){
                 throw std::invalid_argument("Opcao invalida!\n");
             }
@@ -203,6 +234,11 @@ int Interface::subcategoriaModificarVeiculo(){
         testeVariavel = false;
         try{
         std::cin >> valor;
+            if (std::cin.fail()) {
+                std::cin.clear(); // Limpa o estado de erro de `cin`
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descarta o restante da entrada
+                throw std::invalid_argument("Entrada inválida! Digite um número inteiro.\n");
+            }
             if(valor <=0 || valor > 3){
                 throw std::invalid_argument("Opcao invalida!\n");
             }
@@ -232,6 +268,11 @@ int Interface::subcategoriaModificarFuncionarios(){
         testeVariavel = false;
         try{
         std::cin >> valor;
+            if (std::cin.fail()) {
+                std::cin.clear(); // Limpa o estado de erro de `cin`
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descarta o restante da entrada
+                throw std::invalid_argument("Entrada inválida! Digite um número inteiro.\n");
+            }
             if(valor <=0 || valor > 3){
                 throw std::invalid_argument("Opcao invalida!\n");
             }
@@ -261,6 +302,11 @@ int Interface::subcategoriaModificarManutencao(){
         testeVariavel = false;
         try{
         std::cin >> valor;
+            if (std::cin.fail()) {
+                std::cin.clear(); // Limpa o estado de erro de `cin`
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descarta o restante da entrada
+                throw std::invalid_argument("Entrada inválida! Digite um número inteiro.\n");
+            }
             if(valor <=0 || valor > 3){
                 throw std::invalid_argument("Opcao invalida!\n");
             }

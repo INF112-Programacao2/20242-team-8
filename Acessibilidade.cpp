@@ -19,8 +19,6 @@ Acessibilidade::Acessibilidade(const bool _aciona) {
 }
 
 void Acessibilidade::colocaTexto(const std::string &texto) {
-    std::cout << texto;
-
     if (getAciona()) {
         TextToVoice::speak(texto);
     }
