@@ -97,7 +97,7 @@ void Execucao::telaAlterarDadosProduto(){
 
 void Execucao::telaVeiculo(){
     int valor;
-    valor = Interface::exibirSubcategoriaProduto();
+    valor = Interface::exibirSubcategoriaVeiculos();
     switch(valor){
     case 1:
         Execucao::telaAdicionarVeiculo();
@@ -127,7 +127,7 @@ void Execucao::telaConferirVeiculosCadastrados(){
 
 void Execucao::telaModificarVeiculos(){
 int valor;
-    valor = Interface::exibirSubcategoriaProduto();
+    valor = Interface::subcategoriaModificarVeiculo();
     switch(valor){
     case 1:
         Execucao::telaAlterarVeiculos();

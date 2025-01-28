@@ -112,9 +112,9 @@ void Banco::adicionarProdutoNovo() {
         }
 
         std::string texto6 = "Insira a data da compra : ";
-        std::cout << "(Formato DD/MM/AA)";
         std::cout << texto6 << std::endl;
         Acessibilidade::colocaTexto(texto6);
+        std::cout << "(Formato: DD/MM/AA)";
         std::getline(std::cin, dataCompra);
 
         std::string texto7 = "Insira o local da compra: ";
@@ -351,7 +351,8 @@ void Banco::alterarDadosProduto() {
 
             std::cout << seta;
             Acessibilidade::colocaTexto(seta);
-            std::cin >> nomeNovo;
+            std::cin.ignore();
+            std::getline(std::cin, nomeNovo);
 
             std::string querry = "update TIPOPRODUTO set nome = '" + nomeNovo + "' where IDTIPOPRODUTO = " + ID_TIPOPRODUTO + ";";
             if (!db.executeQuery(querry)) {
@@ -689,13 +690,14 @@ void Banco::adicionarVeiculo() {
     if (conectaBD()) {
         std::string nomeMarcaVeiculo, modeloVeiculo, funcaoVeiculo, placaVeiculo;
 
-        std::cout << "Insira os seguintes dados: ";
+        std::cout << "Insira os seguintes dados: \n";
         std::string textoDados = "Insira os seguintes dados: ";
         Acessibilidade::colocaTexto(textoDados);
 
         std::cout << "Insira o nome da marca do veiculo: ";
         std::string textoMarca = "Insira o nome da marca do veiculo: ";
         Acessibilidade::colocaTexto(textoMarca);
+        std::cin.ignore();
         std::getline(std::cin, nomeMarcaVeiculo);
 
         std::cout << "Insira o modelo do veiculo: ";
@@ -870,7 +872,8 @@ void Banco::modificarDadosVeiculo() {
             Acessibilidade::colocaTexto(nomePrompt);
             std::cout << setaPrompt;
             Acessibilidade::colocaTexto(setaPrompt);
-            std::cin >> nomeNovo;
+            std::cin.ignore();
+            std::getline(std::cin, nomeNovo);
             std::string querry = "update TIPOCARRO set nome = '" + nomeNovo + "' where IDTIPOCARRO = " + ID_TIPOCARRO + ";";
             if (!db.executeQuery(querry)) {
                 std::string erro = "Falha ao alterar dados do veiculo!";
@@ -892,7 +895,8 @@ void Banco::modificarDadosVeiculo() {
             Acessibilidade::colocaTexto(funcaoPrompt);
             std::cout << setaPrompt;
             Acessibilidade::colocaTexto(setaPrompt);
-            std::cin >> funcao;
+            std::cin.ignore();
+            std::getline(std::cin, funcao);
             std::string ID_TIPOCARRO;
             std::string querryID_TIPOCARRO = "select CARRO.ID_TIPOCARRO from CARRO where IDCARRO = " + idVeiculo + ";";
             db.getFirstColumnValue(querryID_TIPOCARRO, ID_TIPOCARRO);
@@ -917,7 +921,8 @@ void Banco::modificarDadosVeiculo() {
             Acessibilidade::colocaTexto(placaPrompt);
             std::cout << setaPrompt;
             Acessibilidade::colocaTexto(setaPrompt);
-            std::cin >> placa;
+            std::cin.ignore();
+            std::getline(std::cin, placa);
             std::string querry2 = "update CARRO set placa = '" + placa + "' where IDCARRO = " + idVeiculo + ";";
             if (!db.executeQuery(querry2)) {
                 std::string erro = "Falha ao alterar dados do veiculo!";
