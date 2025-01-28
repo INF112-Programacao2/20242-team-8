@@ -1,4 +1,4 @@
-#include "Execucao.h"
+#include "../include/Execucao.h"
 #include <iostream>
 #include "../include/Banco.h"
 
@@ -66,29 +66,38 @@ void Execucao::telaAdicionarProduto(){
 
 void Execucao::telaAdicionarNovoProduto(){
     Banco::adicionarProdutoNovo();
+    Execucao::telaInicial();
 };
 
 void Execucao::telaAdicionarProdutoExistente(){
     Banco::adicionarProdutoExistente();
+    Execucao::telaInicial();
+
 };
 
 void Execucao::telaConferirEstoque(){
     Banco::conferirEstoque();
+    Execucao::telaInicial();
+
 };
 
 void Execucao::telaRemoverProduto(){
     Banco::removerProduto();
+    Execucao::telaInicial();
+
 };
 
 void Execucao::telaAlterarDadosProduto(){
     Banco::alterarDadosProduto();
+    Execucao::telaInicial();
+
 };
 
 //-------------------------------------------------
 
 void Execucao::telaVeiculo(){
     int valor;
-    valor = Interface::exibirSubcategoriaProduto();
+    valor = Interface::exibirSubcategoriaVeiculos();
     switch(valor){
     case 1:
         Execucao::telaAdicionarVeiculo();
@@ -107,15 +116,18 @@ void Execucao::telaVeiculo(){
 
 void Execucao::telaAdicionarVeiculo(){
     Banco::adicionarVeiculo();
+    Execucao::telaInicial();
+
 };
 
 void Execucao::telaConferirVeiculosCadastrados(){
     Banco::conferirVeiculoCadastrado();
+    Execucao::telaInicial();
 };
 
 void Execucao::telaModificarVeiculos(){
 int valor;
-    valor = Interface::exibirSubcategoriaProduto();
+    valor = Interface::subcategoriaModificarVeiculo();
     switch(valor){
     case 1:
         Execucao::telaAlterarVeiculos();
@@ -131,10 +143,13 @@ int valor;
 
 void Execucao::telaAlterarVeiculos(){
     Banco::modificarDadosVeiculo();
+    Execucao::telaInicial();
+
 };
 
 void Execucao::telaExcluirVeiculo(){
     Banco::removerVeiculo();
+    Execucao::telaInicial();
 };
 
 //-------------------------------------------------
@@ -160,10 +175,13 @@ void Execucao::telaFuncionario(){
 
 void Execucao::telaAdicionarFuncionario(){
     Banco::adicionarFuncionario();
+    Execucao::telaInicial();
+
 };
 
 void Execucao::telaConferirFuncionarios(){
     Banco::conferirFuncionarioCadastrado();
+    Execucao::telaInicial();
 };
 
 void Execucao::telaModificarFuncionarios(){
@@ -184,10 +202,12 @@ void Execucao::telaModificarFuncionarios(){
 
 void Execucao::telaAlterarFuncionario(){
     Banco::alterarFuncionario();
+    Execucao::telaInicial();
 };
 
 void Execucao::telaDeletarFuncionario(){
     Banco::removerFuncionario();
+    Execucao::telaInicial();
 };
 
 //-----------------------------------------------
@@ -213,10 +233,12 @@ void Execucao::telaManutencao(){
 
 void Execucao::telaAdicionarManutencao() {
     Banco::adicionarManutencao();
+    Execucao::telaInicial();
 };
 
 void Execucao::telaConferirManutencoes() {
     Banco::conferirManutencao();
+    Execucao::telaInicial();
 };
 
 void Execucao::telaModificarManutencao() {
@@ -237,8 +259,10 @@ void Execucao::telaModificarManutencao() {
 
 void Execucao::telaAlterarManutencao() {
     Banco::alterarManutencao();
+    Execucao::telaInicial();
 };
 
 void Execucao::telaDeletarManutencao() {
     Banco::removerRegistroManutencao();
+    Execucao::telaInicial();
 };
