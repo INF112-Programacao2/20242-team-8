@@ -30,8 +30,6 @@ add_executable(ProjetoFinal main.cpp
         Mensagem.h
         TextToVoice.cpp
         TextToVoice.h
-        KeyboardInput.cpp
-        KeyboardInput.h
         Interface.cpp
         Interface.h
         Banco.h
