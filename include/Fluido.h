@@ -16,6 +16,7 @@ public:
     void set_volume_minimo(double num);
     void set_unidade(char c);
 
+    virtual void obterDados() override;
     double get_volume_minimo() const;
 
     char get_unidade() const;
