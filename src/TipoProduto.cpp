@@ -10,9 +10,6 @@ TipoProduto::TipoProduto(std::string _nome) {
     nome = std::move(_nome);
 };
 
-void TipoProduto::obterDados() const { //getDados
-};
-
 void TipoProduto::set_nome(const std::string &txt) {
     nome = txt;
 };
