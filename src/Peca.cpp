@@ -16,4 +16,8 @@ int Peca::get_quantidade_minima() const {
     return quantidade_minima;
 };
 
+void Peca::obterDados(){
+    std::cout << "Nome da peca: " << get_nome();
+}
+
 Peca::~Peca() = default;
