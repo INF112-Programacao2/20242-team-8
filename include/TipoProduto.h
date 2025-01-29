@@ -11,7 +11,7 @@ private:
     std::string nome;
 public:
     explicit TipoProduto(std::string _nome);
-    void obterDados() const; //get Tipo_Produto
+    virtual void obterDados(); //get Tipo_Produto
     void set_nome(const std::string &txt);
     std::string get_nome();
     ~TipoProduto();
