@@ -16,6 +16,8 @@ public:
 
     int get_quantidade_minima() const;
 
+    virtual void obterDados() override;
+    
     ~Peca();
 };
 
