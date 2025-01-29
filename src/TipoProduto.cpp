@@ -11,7 +11,6 @@ TipoProduto::TipoProduto(std::string _nome) {
 };
 
 void TipoProduto::obterDados() const { //getDados
-    std::cout << "Nome do produto: " << nome << '\n';
 };
 
 void TipoProduto::set_nome(const std::string &txt) {
