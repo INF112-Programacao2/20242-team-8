@@ -25,4 +25,8 @@ char Fluido::get_unidade() const {
     return unidade;
 };
 
+void Fluido::obterDados(){
+    std::cout << "Nome do fluido: " << get_nome();
+}
+
 Fluido::~Fluido() = default;
